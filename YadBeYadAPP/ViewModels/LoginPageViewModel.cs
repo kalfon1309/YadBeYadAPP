@@ -4,7 +4,8 @@ using System.Text;
 
 namespace YadBeYadAPP.ViewModels
 {
-    class Class1
+    class LoginPageViewModel
     {
+        //hgjm
     }
 }
