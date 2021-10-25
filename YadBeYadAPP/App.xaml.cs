@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using YadBeYadApp.Models;
 
 namespace YadBeYadAPP
 {
@@ -13,6 +14,9 @@ namespace YadBeYadAPP
                 return true; //change this before release!
             }
         }
+
+        public User CurrentUser { get; set; }
+
         public App()
         {
             InitializeComponent();
