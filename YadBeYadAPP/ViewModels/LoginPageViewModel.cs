@@ -30,6 +30,7 @@ namespace YadBeYadAPP.ViewModels
                 if(u != null)
                 {
                     ((App)App.Current).CurrentUser = u;
+                    //Push?.Invoke(new StartPage());
                 }
             }
             catch(Exception)
@@ -95,6 +96,7 @@ namespace YadBeYadAPP.ViewModels
 
         #region Events
 
+        public event Action<Page> Push;
 
         #endregion
     }

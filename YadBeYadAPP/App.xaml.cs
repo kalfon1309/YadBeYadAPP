@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using YadBeYadApp.Models;
+using YadBeYadAPP.Views;
 
 namespace YadBeYadAPP
 {
@@ -21,7 +22,7 @@ namespace YadBeYadAPP
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()

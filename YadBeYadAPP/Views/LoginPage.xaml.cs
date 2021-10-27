@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using YadBeYadAPP.ViewModels;
 
 namespace YadBeYadAPP.Views
 {
@@ -15,6 +16,10 @@ namespace YadBeYadAPP.Views
         public LoginPage()
         {
             InitializeComponent();
+            LoginPageViewModel lVM = new LoginPageViewModel();
+            BindingContext = lVM;
+            lVM.Push += (p) => Navigation.PushAsync(p);
+            this.BackgroundImageSource = FileImageSource.FromFile("drawable/YadBeYadLogo.png");
         }
     }
 }
