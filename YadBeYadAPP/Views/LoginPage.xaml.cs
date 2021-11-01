@@ -19,7 +19,7 @@ namespace YadBeYadAPP.Views
             LoginPageViewModel lVM = new LoginPageViewModel();
             BindingContext = lVM;
             lVM.Push += (p) => Navigation.PushAsync(p);
-            this.BackgroundImageSource = FileImageSource.FromFile("drawable/YadBeYadLogo.png");
+
         }
     }
 }

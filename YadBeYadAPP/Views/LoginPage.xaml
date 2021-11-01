@@ -3,11 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="YadBeYadAPP.Views.LoginPage">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="LightBlue">
-            <Label Text="Welcome to YadBeYad"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            
+        <StackLayout BackgroundColor="#CAFBFE" Padding="10">
+
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="2" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Text="YadBeYad" FontFamily="Secular One" FontSize="25" TextColor="Black" FontAttributes="Bold" 
+                VerticalOptions="StartAndExpand" 
+                HorizontalOptions="CenterAndExpand" Grid.Row="0" />
+
+                <Image Source="YadBeYadLogo.png" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" WidthRequest="85" Grid.Row="1"/>
+                <Frame BackgroundColor="#C9CFED" HorizontalOptions="CenterAndExpand" WidthRequest="100" Grid.Row="2" Margin="0,20,0,0" ></Frame>
+                <Frame BackgroundColor="#C9CFED" HorizontalOptions="CenterAndExpand" WidthRequest="100" Grid.Row="3" Margin="0,20,0,0" ></Frame>
+            </Grid>
             
         </StackLayout>
     </ContentPage.Content>
