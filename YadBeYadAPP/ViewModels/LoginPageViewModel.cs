@@ -5,6 +5,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using YadBeYadApp.Models;
 using YadBeYadApp.Services;
+using YadBeYadAPP.Views;
 
 namespace YadBeYadAPP.ViewModels
 {
@@ -30,7 +31,7 @@ namespace YadBeYadAPP.ViewModels
                 if(u != null)
                 {
                     ((App)App.Current).CurrentUser = u;
-                    //Push?.Invoke(new StartPage());
+                    Push?.Invoke(new StartPage());
                 }
             }
             catch(Exception)

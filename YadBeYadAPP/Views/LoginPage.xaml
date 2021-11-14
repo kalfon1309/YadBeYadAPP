@@ -1,7 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:YadBeYadAPP.ViewModels"
              x:Class="YadBeYadAPP.Views.LoginPage">
+    <ContentPage.BindingContext>
+        <local:LoginPageViewModel></local:LoginPageViewModel>
+    </ContentPage.BindingContext>
+    
+    
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#CAFBFE" Padding="10">
 
@@ -32,7 +38,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Image Source="EmailLogo.png" Grid.Column="0" HeightRequest="15"/>
-                        <Entry Grid.Column="1" Placeholder="Enter your email" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand"/>
+                        <Entry Grid.Column="1" Placeholder="Enter your email" Text="{Binding Email}" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand"/>
                     </Grid>
                 </Frame>
                 <Frame HasShadow="false" Padding="5,0" CornerRadius="3" Grid.Row="3" BackgroundColor="#C9CFED" >
@@ -42,7 +48,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Image Source="KeyIcon.png" Grid.Column="0" HeightRequest="15"/>
-                        <Entry Grid.Column="1" Placeholder="Enter your password" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand"/>
+                        <Entry Grid.Column="1" Placeholder="Enter your password" Text="{Binding Password}" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand"/>
                     </Grid>
                 </Frame>
 
@@ -50,7 +56,7 @@
                     VerticalOptions="CenterAndExpand" BackgroundColor="Transparent"
                     HorizontalOptions="CenterAndExpand" Grid.Row="4" />
                 
-                    <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" WidthRequest="100" HeightRequest="30" Grid.Row="5" Text="Sign In" FontSize="8" FontFamily="Secular One" FontAttributes="Bold"/>
+                    <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" WidthRequest="100" HeightRequest="30" Grid.Row="5" Command="{Binding LoginCommand}" Text="Sign In" FontSize="8" FontFamily="Secular One" FontAttributes="Bold"/>
                     <Label Padding="0,0" Text="-OR-" FontFamily="Unkempt" FontSize="10" TextColor="#4860DE" FontAttributes="Bold" Margin="0,10,0,0"
                     HorizontalOptions="CenterAndExpand"  Grid.Row="6"  />
                     <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  WidthRequest="100" Grid.Row="7" VerticalOptions="CenterAndExpand" Text="New account" FontSize="8" FontFamily="Secular One" FontAttributes="Bold"/>
