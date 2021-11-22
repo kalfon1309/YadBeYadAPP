@@ -7,6 +7,7 @@ using YadBeYadApp.Models;
 using YadBeYadApp.Services;
 using YadBeYadAPP.Views;
 
+
 namespace YadBeYadAPP.ViewModels
 {
 
@@ -14,11 +15,22 @@ namespace YadBeYadAPP.ViewModels
     {
         public SignUpPageViewModel()
         {
+            FirstName = string.Empty;
+            LastName = string.Empty;
+            UserName = string.Empty;
             Email = string.Empty;
             Password = string.Empty;
-            Status = string.Empty;
-            //ToSignUpCommand = new Command(ToSignUp);
-            //ToForgotPassCommand = new Command(ToForgotPass);
+            Age = default(int);
+            status = string.Empty;
+            FirstNameError = string.Empty;
+            LastNameError = string.Empty;
+            UserNameError = string.Empty;
+            EmailError = string.Empty;
+            AgeError = string.Empty;
+            PasswordError = string.Empty;
+
+            SignUpCommand = new Command(SignUp);
+
         }
 
         private async void SignUp()
@@ -26,20 +38,117 @@ namespace YadBeYadAPP.ViewModels
             YadBeYadAPIProxy proxy = YadBeYadAPIProxy.CreateProxy();
             try
             {
-                User u = await proxy.LoginAsync(Email, Password);
-                Status = "Loging you in....";
-                if (u != null)
+                FirstNameError = string.Empty;
+                LastNameError = string.Empty;
+                UserNameError = string.Empty;
+                EmailError = string.Empty;
+                AgeError = string.Empty;
+                PasswordError = string.Empty;
+
+                if (string.IsNullOrEmpty(FirstName) || string.IsNullOrEmpty(LastName) || string.IsNullOrEmpty(UserName) || string.IsNullOrEmpty(Email)
+                    || string.IsNullOrEmpty(Password) || !ValidateEmail() || !ValidateName(FirstName) || !ValidateName(LastName) || Age == 0 )
                 {
-                    ((App)App.Current).CurrentUser = u;
-                    Push?.Invoke(new StartPage());
+                    if (string.IsNullOrEmpty(FirstName))
+                        FirstNameError = "Required Field";
+                    else if (!ValidateName(FirstName))
+                        FirstNameError = "First Name Not Valid";
+
+                    if (string.IsNullOrEmpty(LastName))
+                        LastNameError = "Required Field";
+                    else if (!ValidateName(LastName))
+                        LastNameError = "Last Name Not Valid";
+
+                    if (string.IsNullOrEmpty(UserName))
+                        UserNameError = "Required Field";
+
+                    if (string.IsNullOrEmpty(Email))
+                        EmailError = "Required Field";
+                    else if (!ValidateEmail())
+                        EmailError = "Email Not Valid";
+
+                    if (Age == 0)
+                        AgeError = "Required Field";
+                  
+                    if (string.IsNullOrEmpty(Password))
+                        PasswordError = "Required Field";
+
+                    return;
                 }
+                bool isUnique = await proxy.CheckUniqueness(Email, UserName);
+
+                if (isUnique)
+                {
+
+                    MainUserDTO mUser = new MainUserDTO
+                    {
+                        Business = null,
+                        User = new User
+                        {
+                            Email = Email,
+                            UserPassword = Password,
+                            UserName = UserName,
+                            PhoneNumber = PhoneNum,
+                            UserType = true,
+                            Businesses = new List<Business>(),
+                            Clients = new List<Client>()
+                        },// problem: user has a list of users and businesses
+                        Client = new Client
+                        {
+                            FirstName = FirstName,
+                            LastName = LastName,
+                            UserName = UserName,
+                            Comments = new List<Comment>(),
+                            Favorites = new List<Favorite>(),
+                            Histories = new List<History>(),
+                            Reservations = new List<Reservation>()
+                        }
+
+                    };
+
+
+
+                    bool b = await proxy.ClientSignUpAsync(mUser);
+                    Status = "Signing you up...";
+                    if (b)
+                        Status = "Sign Up Completed:)";
+                    else
+                        Status = "Something Went Wrong...";
+                }
+                else
+                {
+                    Status = "Email or/and User Name has/have already been used";
+                }
+
+
             }
             catch (Exception)
             {
-                Status = "Something went wrong...";
+                Status = "Something Went Wrong...";
             }
         }
 
+        public bool ValidateEmail() // a function that checks that the inserted email is in an email format
+        {
+            try
+            {
+                MailAddress TestEmail = new MailAddress(Email);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+
+        public bool ValidateName(string name) //a function that checks that the inserted name has only letters
+        {
+            Regex rg = new Regex("^[A-Z][a-zA-Z/s]+$");
+            return rg.IsMatch(name);
+        }
+      
+        
         #region Properties
         private string email;
 
@@ -241,15 +350,19 @@ namespace YadBeYadAPP.ViewModels
                     OnPropertyChanged();
                 }
             }
-
-            #endregion
-
-            #region Commands
-
-            #endregion
-
-            #region Events
-
-            #endregion
         }
+            #endregion
+      
+        #region Commands
+
+        public ICommand SignUpCommand { get; set; }
+
+        #endregion
+
+        #region Events
+
+
+        #endregion
+
     }
+}
