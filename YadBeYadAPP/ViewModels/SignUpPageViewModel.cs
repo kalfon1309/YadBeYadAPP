@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Input;
 using Xamarin.Forms;
 using YadBeYadApp.Models;
@@ -79,35 +81,21 @@ namespace YadBeYadAPP.ViewModels
                 if (isUnique)
                 {
 
-                    MainUserDTO mUser = new MainUserDTO
+                    User user = new User
                     {
-                        Business = null,
-                        User = new User
-                        {
                             Email = Email,
-                            UserPassword = Password,
+                            Pass = Password,
                             UserName = UserName,
-                            PhoneNumber = PhoneNum,
-                            UserType = true,
-                            Businesses = new List<Business>(),
-                            Clients = new List<Client>()
-                        },// problem: user has a list of users and businesses
-                        Client = new Client
-                        {
+                            Age = Age,
                             FirstName = FirstName,
                             LastName = LastName,
-                            UserName = UserName,
-                            Comments = new List<Comment>(),
-                            Favorites = new List<Favorite>(),
-                            Histories = new List<History>(),
-                            Reservations = new List<Reservation>()
-                        }
-
+                            Rates = new List<Rate>(),
+                            Reviews = new List<Review>()
                     };
 
 
 
-                    bool b = await proxy.ClientSignUpAsync(mUser);
+                    bool b = await proxy.SignUpAsync(user);
                     Status = "Signing you up...";
                     if (b)
                         Status = "Sign Up Completed:)";
