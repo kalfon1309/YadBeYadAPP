@@ -1,12 +1,115 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:YadBeYadAPP.ViewModels"
              x:Class="YadBeYadAPP.Views.SignUpPage">
+    <ContentPage.BindingContext>
+        <local:LoginPageViewModel></local:LoginPageViewModel>
+    </ContentPage.BindingContext>
+
+
+  
+  
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+
+
+        <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#CAFBFE" Padding="10">
+
+            <ScrollView>
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" RowSpacing="5" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+
+
+                </Grid.RowDefinitions>
+                <Label Text="YadBeYad" FontFamily="Secular One" FontSize="25" TextColor="Black" FontAttributes="Bold" 
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" Grid.Row="0" />
+
+                <Image  Source="YadBeYadLogo.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  WidthRequest="85" Grid.Row="1"/>
+                <Frame HasShadow="false" Padding="5,0" CornerRadius="3" Grid.Row="2" BackgroundColor="#C9CFED" >
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="EmailLogo.png" Grid.Column="0" HeightRequest="15"/>
+                        <Entry Grid.Column="1" Placeholder="Enter your email" Text="{Binding Email}" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand"/>
+                    </Grid>
+                </Frame>
+                
+                <Frame HasShadow="false" Padding="5,0" CornerRadius="3" Grid.Row="3" BackgroundColor="#C9CFED" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="KeyIcon.png" Grid.Column="0" HeightRequest="15"/>
+                        <Entry Grid.Column="1" Placeholder="Enter your password" Text="{Binding Password}" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand"/>
+                    </Grid>
+                </Frame>
+                
+                
+                <Frame HasShadow="false" Padding="5,0" CornerRadius="3" Grid.Row="4" BackgroundColor="#C9CFED" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="ManIcon.png" Grid.Column="0" HeightRequest="15"/>
+                        <Entry Grid.Column="1" Placeholder="Enter your FirstName" Text="{Binding Password}" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand"/>
+                    </Grid>
+                </Frame>
+                
+                
+                <Frame HasShadow="false" Padding="5,0" CornerRadius="3" Grid.Row="5" BackgroundColor="#C9CFED" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="ManIcon.png" Grid.Column="0" HeightRequest="15"/>
+                        <Entry Grid.Column="1" Placeholder="Enter your LastName" Text="{Binding Password}" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand"/>
+                    </Grid>
+                </Frame>
+                
+                
+                <Frame HasShadow="false" Padding="5,0" CornerRadius="3" Grid.Row="6" BackgroundColor="#C9CFED" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="ManIcon.png" Grid.Column="0" HeightRequest="15"/>
+                        <Entry Grid.Column="1" Placeholder="Enter your UserName" Text="{Binding Password}" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand"/>
+                    </Grid>
+                </Frame>
+                
+                
+                <Frame HasShadow="false" Padding="5,0" CornerRadius="3" Grid.Row="7" BackgroundColor="#C9CFED" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="ChildIcon.png" Grid.Column="0" HeightRequest="15"/>
+                        <Entry Grid.Column="1" Placeholder="Enter your Age" Text="{Binding Password}" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand"/>
+                    </Grid>
+                </Frame>
+
+            </Grid>
+
+            </ScrollView>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
