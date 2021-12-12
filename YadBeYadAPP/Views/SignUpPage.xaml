@@ -75,8 +75,8 @@
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
                         <Image Source="ManIcon.png" Grid.Column="0" HeightRequest="15"/>
                         <Entry Grid.Column="1" Placeholder="Enter your LastName" Text="{Binding Password}" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand"/>
                     </Grid>
