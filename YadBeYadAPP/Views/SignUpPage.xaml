@@ -27,9 +27,9 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
 
-
-                </Grid.RowDefinitions>
+                    </Grid.RowDefinitions>
                 <Label Text="YadBeYad" FontFamily="Secular One" FontSize="25" TextColor="Black" FontAttributes="Bold" 
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand" Grid.Row="0" />
@@ -102,11 +102,13 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Image Source="ChildIcon.png" Grid.Column="0" HeightRequest="15"/>
-                        <Entry Grid.Column="1" Placeholder="Enter your Age" Text="{Binding Password}" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand"/>
+                        <Entry Grid.Column="1"  Placeholder="Enter your Age" Text="{Binding Password}" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand"/>
                     </Grid>
                 </Frame>
+                    <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" WidthRequest="100" HeightRequest="30"
+                            Grid.Row="8" Text="Sign In" FontSize="8" FontFamily="Secular One" FontAttributes="Bold"/>
 
-            </Grid>
+                </Grid>
 
             </ScrollView>
 
