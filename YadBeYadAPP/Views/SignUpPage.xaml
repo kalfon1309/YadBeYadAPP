@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:YadBeYadAPP.ViewModels"
              x:Class="YadBeYadAPP.Views.SignUpPage">
     <ContentPage.BindingContext>
-        <local:LoginPageViewModel></local:LoginPageViewModel>
+        <local:SignUpPageViewModel></local:SignUpPageViewModel>
     </ContentPage.BindingContext>
 
 
