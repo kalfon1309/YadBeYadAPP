@@ -39,7 +39,7 @@ namespace YadBeYadAPP.ViewModels
         {
             YadBeYadAPIProxy proxy = YadBeYadAPIProxy.CreateProxy();
             try
-            {
+            {//hi
                 FirstNameError = string.Empty;
                 LastNameError = string.Empty;
                 UserNameError = string.Empty;
