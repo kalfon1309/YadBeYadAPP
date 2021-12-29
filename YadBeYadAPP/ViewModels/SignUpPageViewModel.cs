@@ -74,6 +74,7 @@ namespace YadBeYadAPP.ViewModels
                     if (string.IsNullOrEmpty(Password))
                         PasswordError = "Required Field";
 
+                    await App.Current.MainPage.DisplayAlert("Failed", "Fail!!!!", "ok");
                     return;
                 }
                 bool isUnique = await proxy.CheckUniqueness(Email, UserName);
@@ -98,13 +99,22 @@ namespace YadBeYadAPP.ViewModels
                     bool b = await proxy.SignUpAsync(user);
                     Status = "Signing you up...";
                     if (b)
+                    {
                         Status = "Sign Up Completed:)";
+                        await App.Current.MainPage.DisplayAlert("Success", Status, "ok");
+                    }
+                        
                     else
+                    {
                         Status = "Something Went Wrong...";
+                        await App.Current.MainPage.DisplayAlert("Failed", Status, "ok");
+                    }
+                        
                 }
                 else
                 {
                     Status = "Email or/and User Name has/have already been used";
+                    await App.Current.MainPage.DisplayAlert("Failed", Status, "ok");
                 }
 
 
