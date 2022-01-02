@@ -1,8 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="YadBeYadAPP.Views.ProfilePage">
-      
+             x:Class="YadBeYadAPP.Views.ProfilePage"
+             xmlns:local="clr-namespace:YadBeYadAPP.ViewModels">
+
+    <ContentPage.BindingContext>
+        <local:ProfileViewModel></local:ProfileViewModel>
+    </ContentPage.BindingContext>
+
+
     <ContentPage.Content>
 
         <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#CAFBFE" Padding="10">
@@ -11,14 +17,44 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+
                 </Grid.RowDefinitions>
 
-                <Label Text="YadBeYad" FontFamily="Secular One" FontSize="25" TextColor="Black" FontAttributes="Bold" 
+                <Label Text="Profile" FontFamily="Secular One" FontSize="25" TextColor="Black" FontAttributes="Bold" 
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand" Grid.Row="0" />
 
                 <Image  Source="YadBeYadLogo.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  WidthRequest="85" Grid.Row="1"/>
-                
+
+                <Label Text="First Name:" FontFamily="Secular One" FontSize="20" TextColor="Black" FontAttributes="Bold" 
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" Grid.Row="2" />
+
+                <Label Text="Last Name:" FontFamily="Secular One" FontSize="20" TextColor="Black" FontAttributes="Bold" 
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" Grid.Row="3" />
+
+                <Label Text="User Name:" FontFamily="Secular One" FontSize="20" TextColor="Black" FontAttributes="Bold" 
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" Grid.Row="4" />
+
+                <Label Text="Password:" FontFamily="Secular One" FontSize="20" TextColor="Black" FontAttributes="Bold" 
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" Grid.Row="5" />
+
+                <Label Text="Email:" FontFamily="Secular One" FontSize="20" TextColor="Black" FontAttributes="Bold" 
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" Grid.Row="6" />
+
+                <Label Text="Age:" FontFamily="Secular One" FontSize="20" TextColor="Black" FontAttributes="Bold" 
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" Grid.Row="7" />
 
             </Grid>
 
