@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using YadBeYadAPP.ViewModels;
 
 namespace YadBeYadAPP.Views
 {
@@ -16,7 +15,6 @@ namespace YadBeYadAPP.Views
         public ProfilePage()
         {
             InitializeComponent();
-            this.BindingContext = new ProfileViewModel();
         }
     }
 }
