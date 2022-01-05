@@ -8,8 +8,9 @@
     <ContentPage.Content>
 
         <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#CAFBFE" Padding="10">
-
-            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" RowSpacing="5" >
+          
+            
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" RowSpacing="0" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -19,49 +20,104 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+
 
                 </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
 
                 <Label Text="Profile" FontFamily="Secular One" FontSize="25" TextColor="Black" FontAttributes="Bold" 
                     VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="CenterAndExpand" Grid.Row="0" />
+                    HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" />
 
-                <Image  Source="YadBeYadLogo.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  WidthRequest="85" Grid.Row="1" Margin="0,0,0,15"/>
+                <Image  Source="YadBeYadLogo.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  WidthRequest="85" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Margin="0,0,0,15"/>
 
-                <Label Text="First Name:" FontFamily="Secular One" FontSize="15" TextColor="Black" FontAttributes="Bold" 
+                <Label  FontFamily="Secular One" FontSize="15" TextColor="Black" FontAttributes="Bold" 
                     VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="StartAndExpand" Grid.Row="2" />
+                    HorizontalOptions="StartAndExpand" Grid.Column="0" Grid.Row="2">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="First Name" TextDecorations="Underline"/>
+                            <Span Text=": Liam"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                    
+                </Label>
 
-                <Label Text="Last Name:" FontFamily="Secular One" FontSize="15" TextColor="Black" FontAttributes="Bold" 
+
+                <Label  FontFamily="Secular One" FontSize="15" TextColor="Black" FontAttributes="Bold" 
                     VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="StartAndExpand" Grid.Row="3" />
+                    HorizontalOptions="StartAndExpand" Grid.Column="0" Grid.Row="3">
+                    <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Last Name" TextDecorations="Underline"/>
+                        <Span Text=": Raz"/>
+                    </FormattedString>
+                    </Label.FormattedText>
+                </Label> 
 
-                <Label Text="User Name:" FontFamily="Secular One" FontSize="15" TextColor="Black" FontAttributes="Bold" 
+                <Label  FontFamily="Secular One" FontSize="15" TextColor="Black" FontAttributes="Bold" 
                     VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="StartAndExpand" Grid.Row="4" />
+                    HorizontalOptions="StartAndExpand" Grid.Column="0" Grid.Row="4">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="User Name" TextDecorations="Underline"/>
+                            <Span Text=": Razchik"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
 
-                <Label Text="Password:" FontFamily="Secular One" FontSize="15" TextColor="Black" FontAttributes="Bold" 
+                <Label  FontFamily="Secular One" FontSize="15" TextColor="Black" FontAttributes="Bold" 
                     VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="StartAndExpand" Grid.Row="5" />
+                    HorizontalOptions="StartAndExpand" Grid.Column="0" Grid.Row="5">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Password" TextDecorations="Underline"/>
+                            <Span Text=": 123"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
 
-                <Label Text="Email:" FontFamily="Secular One" FontSize="15" TextColor="Black" FontAttributes="Bold" 
+                <Label  FontFamily="Secular One" FontSize="15" TextColor="Black" FontAttributes="Bold" 
                     VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="StartAndExpand" Grid.Row="6" />
+                    HorizontalOptions="StartAndExpand" Grid.Column="0" Grid.Row="6">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Email" TextDecorations="Underline"/>
+                            <Span Text=": liam@gmail.com"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
 
-                <Label Text="Age:" FontFamily="Secular One" FontSize="15" TextColor="Black" FontAttributes="Bold" 
+                <Label  FontFamily="Secular One" FontSize="15" TextColor="Black" FontAttributes="Bold" 
                     VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="StartAndExpand" Grid.Row="7" />
+                    HorizontalOptions="StartAndExpand" Grid.Column="0" Grid.Row="7">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text=" Age" TextDecorations="Underline"/>
+                            <Span Text=": 17"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
 
-                <Image  Source="RotatedPalm.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"  WidthRequest="85" Grid.Row="7"/>
-                
-                
-                
+                <Image  Source="RotatedPalm.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" WidthRequest="30" Grid.Row="2"/>
+                <Image  Source="RotatedPalm.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" WidthRequest="30" Grid.Row="3"/>
+                <Image  Source="RotatedPalm.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" WidthRequest="30" Grid.Row="4"/>
+                <Image  Source="RotatedPalm.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" WidthRequest="30" Grid.Row="5"/>
+                <Image  Source="RotatedPalm.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" WidthRequest="30" Grid.Row="6"/>
+                <Image  Source="RotatedPalm.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" WidthRequest="30" Grid.Row="7"/>
 
+
+                <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" WidthRequest="100" HeightRequest="40"
+                                Grid.Row="8" Grid.ColumnSpan="2" Grid.Column="0" Text="Update" TextColor="Gold" FontSize="15"   FontAttributes="Bold"/>
 
             </Grid>
 
 
-
+         
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

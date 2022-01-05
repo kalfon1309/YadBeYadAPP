@@ -110,5 +110,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\RotatedPalm.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\PencilIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
