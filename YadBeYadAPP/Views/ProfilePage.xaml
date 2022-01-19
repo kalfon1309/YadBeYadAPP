@@ -40,8 +40,8 @@
                     HorizontalOptions="StartAndExpand" Grid.Column="0" Grid.Row="2">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="First Name" TextDecorations="Underline"/>
-                            <Span Text=": Liam"/>
+                            <Span Text="First Name: " TextDecorations="Underline"/>
+                            <Span Text="{Binding FirstName}"/>
                         </FormattedString>
                     </Label.FormattedText>
                     
@@ -53,9 +53,9 @@
                     HorizontalOptions="StartAndExpand" Grid.Column="0" Grid.Row="3">
                     <Label.FormattedText>
                     <FormattedString>
-                        <Span Text="Last Name" TextDecorations="Underline"/>
-                        <Span Text=": Raz"/>
-                    </FormattedString>
+                        <Span Text="Last Name: " TextDecorations="Underline"/>
+                            <Span Text="{Binding LastName}"/>
+                        </FormattedString>
                     </Label.FormattedText>
                 </Label> 
 
@@ -64,8 +64,8 @@
                     HorizontalOptions="StartAndExpand" Grid.Column="0" Grid.Row="4">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="User Name" TextDecorations="Underline"/>
-                            <Span Text=": Razchik"/>
+                            <Span Text="User Name: " TextDecorations="Underline"/>
+                            <Span Text="{Binding UserName}"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
@@ -75,8 +75,8 @@
                     HorizontalOptions="StartAndExpand" Grid.Column="0" Grid.Row="5">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="Password" TextDecorations="Underline"/>
-                            <Span Text=": 123"/>
+                            <Span Text="Password: " TextDecorations="Underline"/>
+                            <Span Text="{Binding Password}"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
@@ -86,8 +86,8 @@
                     HorizontalOptions="StartAndExpand" Grid.Column="0" Grid.Row="6">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="Email" TextDecorations="Underline"/>
-                            <Span Text=": liam@gmail.com"/>
+                            <Span Text="Email: " TextDecorations="Underline"/>
+                            <Span Text="{Binding Email}"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
@@ -97,8 +97,8 @@
                     HorizontalOptions="StartAndExpand" Grid.Column="0" Grid.Row="7">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text=" Age" TextDecorations="Underline"/>
-                            <Span Text=": 17"/>
+                            <Span Text="Age: " TextDecorations="Underline"/>
+                            <Span Text="{Binding Age}"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
@@ -112,7 +112,7 @@
 
 
                 <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" WidthRequest="100" HeightRequest="40"
-                                Grid.Row="8" Grid.ColumnSpan="2" Grid.Column="0" Text="Update" TextColor="Gold" FontSize="15"   FontAttributes="Bold"/>
+                                Grid.Row="8" Grid.ColumnSpan="2" Grid.Column="0" Text="Update" TextColor="Gold" FontSize="15"   FontAttributes="Bold" />
 
             </Grid>
 

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using YadBeYadAPP.ViewModels;
 
 namespace YadBeYadAPP.Views
 {
@@ -15,6 +16,15 @@ namespace YadBeYadAPP.Views
         public ProfilePage()
         {
             InitializeComponent();
+            ProfileViewModel pVM = new ProfileViewModel();
+            BindingContext = pVM;
+            pVM.Push += (p) => Navigation.PushAsync(p);
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            ((ProfileViewModel)this.BindingContext).RefreshPage();
         }
     }
 }
