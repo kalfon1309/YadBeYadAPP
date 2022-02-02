@@ -142,7 +142,7 @@ namespace YadBeYadAPP.ViewModels
 
         public void RefreshPage()
         {
-            User currentUser = ((App)App.Current).CurrentUser;
+            User currentUser = ((App)App.Current).CurrentUser; 
             if (currentUser != null)
             {
                 this.FirstName = currentUser.FirstName;
