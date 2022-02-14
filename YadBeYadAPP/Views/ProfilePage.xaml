@@ -29,13 +29,17 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
+
+                <Button BackgroundColor="#6482EE" HorizontalOptions="EndAndExpand"  VerticalOptions="EndAndExpand" WidthRequest="50" HeightRequest="20"
+                                Grid.Row="0" Text="Activity" TextColor="Gold" FontSize="8" Padding="0" Margin="25,0,0,3" FontAttributes="Bold" Grid.Column="1"/>
+
                 <Label Text="Profile" FontFamily="Secular One" FontSize="25" TextColor="Black" FontAttributes="Bold" 
                     VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" />
+                    HorizontalOptions="EndAndExpand" Grid.Column="0"  Grid.Row="0" />
 
                 <Image  Source="YadBeYadLogo.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  WidthRequest="85" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Margin="0,0,0,15"/>
 
-                <Label  FontFamily="Secular One" FontSize="15" TextColor="Black" FontAttributes="Bold" 
+                <Label   FontFamily="Secular One" FontSize="15" TextColor="Black" FontAttributes="Bold" 
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="StartAndExpand" Grid.Column="0" Grid.Row="2">
                     <Label.FormattedText>
