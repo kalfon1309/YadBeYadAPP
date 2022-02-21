@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YadBeYadAPP.UWP", "YadBeYad
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YadBeYadAPP.Android", "YadBeYadAPP.Android\YadBeYadAPP.Android.csproj", "{D2BAFCD7-7D09-4B7C-B905-01977E51051F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YadBeYadAPP", "YadBeYadAPP\YadBeYadAPP.csproj", "{66D4102F-1AED-4AEF-945B-1690F27F55BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YadBeYadAPP", "YadBeYadAPP\YadBeYadAPP.csproj", "{66D4102F-1AED-4AEF-945B-1690F27F55BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

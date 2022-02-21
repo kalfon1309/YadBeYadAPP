@@ -124,7 +124,7 @@
                         </Grid>
                     </Frame>
                     <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" WidthRequest="100" HeightRequest="30"
-                                Grid.Row="14" Text="Sign In" Command="{Binding SignUpCommand}" FontSize="8" FontFamily="Secular One" FontAttributes="Bold"/>
+                                Grid.Row="14" Text="Sign Up" Command="{Binding SignUpCommand}" FontSize="8" FontFamily="Secular One" FontAttributes="Bold"/>
 
                 </Grid>
 
