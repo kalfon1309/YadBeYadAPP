@@ -4,6 +4,7 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 using YadBeYadApp.Models;
+using YadBeYadAPP.Views;
 
 namespace YadBeYadAPP.ViewModels
 {
@@ -22,14 +23,20 @@ namespace YadBeYadAPP.ViewModels
                 this.Age = currentUser.Age;
 
                 ToUpdatePageCommand = new Command(ToUpdatePage);
-
+                ToActivityPageCommand = new Command(ToActivityPage);
             }
             else
             {
+                ToUpdatePageCommand = new Command(ToUpdatePage);
+                ToActivityPageCommand = new Command(ToActivityPage);
                 //Push?.Invoke(new startpage);
             }
         }
 
+        private void ToActivityPage()
+        {
+            Push?.Invoke(new Activity());
+        }
         private void ToUpdatePage()
         {
             //Push?.Invoke(new UpdatePage());
@@ -131,6 +138,7 @@ namespace YadBeYadAPP.ViewModels
         #region Commands
 
         public ICommand ToUpdatePageCommand { get; set; }
+        public ICommand ToActivityPageCommand { get; set; }
 
         #endregion
 

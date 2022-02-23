@@ -31,7 +31,7 @@
 
 
                 <Button BackgroundColor="#6482EE" HorizontalOptions="EndAndExpand"  VerticalOptions="EndAndExpand" WidthRequest="50" HeightRequest="20"
-                                Grid.Row="0" Text="Activity" TextColor="Gold" FontSize="8" Padding="0" Margin="25,0,0,3" FontAttributes="Bold" Grid.Column="1"/>
+                                Grid.Row="0" Text="Activity" Command="{Binding ToActivityPageCommand}" TextColor="Gold" FontSize="8" Padding="0" Margin="25,0,0,3" FontAttributes="Bold" Grid.Column="1"/>
 
                 <Label Text="Profile" FontFamily="Secular One" FontSize="25" TextColor="Black" FontAttributes="Bold" 
                     VerticalOptions="CenterAndExpand" 
