@@ -101,20 +101,21 @@ namespace YadBeYadAPP.ViewModels
                     if (b)
                     {
                         Status = "Sign Up Completed:)";
-                        //await App.Current.MainPage.DisplayAlert("Success", Status, "ok");
+                        await App.Current.MainPage.DisplayAlert("Success", Status, "ok");
                     }
                         
                     else
                     {
                         Status = "Something Went Wrong...";
-                        //await App.Current.MainPage.DisplayAlert("Failed", Status, "ok");
+                        await App.Current.MainPage.DisplayAlert("Failed", Status, "ok");
                     }
                         
                 }
                 else
                 {
                     Status = "Email or/and User Name has/have already been used";
-                    //await App.Current.MainPage.DisplayAlert("Failed", Status, "ok");
+                    
+                    await App.Current.MainPage.DisplayAlert("Failed", Status, "ok");
                 }
 
 
