@@ -39,7 +39,7 @@ namespace YadBeYadAPP.ViewModels
         }
         private void ToUpdatePage()
         {
-            //Push?.Invoke(new UpdatePage());
+            Push?.Invoke(new UpdateProfilePage());
         }
 
         #region Properties

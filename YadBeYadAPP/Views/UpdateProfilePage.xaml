@@ -33,7 +33,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Label Text="First Name:" Grid.Column="0" Margin="0,6,0,0" TextColor="Black"/>
-                            <Entry Grid.Column="1" Placeholder="Update your first name" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand"  PlaceholderColor="Black"/>
+                            <Entry Text="{Binding FirstName}" Grid.Column="1" Placeholder="Update your first name" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand"  PlaceholderColor="Black"/>
                         </Grid>
                 </Frame>
 
@@ -45,7 +45,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Label Text="Last Name:" Grid.Column="0"  Margin="0,6,0,0" TextColor="Black"/>
-                            <Entry Grid.Column="1" Placeholder="Update your last name" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand"  PlaceholderColor="Black"/>
+                            <Entry Text="{Binding LastName}" Grid.Column="1" Placeholder="Update your last name" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand"  PlaceholderColor="Black"/>
                     </Grid>
                 </Frame>
 
@@ -57,7 +57,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Label Text="User Name:" Grid.Column="0"  Margin="0,6,0,0" TextColor="Black"/>
-                            <Entry Grid.Column="1" Placeholder="Update your user name" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand" PlaceholderColor="Black"/>
+                            <Entry Text="{Binding UserName}" Grid.Column="1" Placeholder="Update your user name" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand" PlaceholderColor="Black"/>
                     </Grid>
                 </Frame>
 
@@ -69,7 +69,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Label Text="Password:" Grid.Column="0"  Margin="0,6,0,0" TextColor="Black"/>
-                            <Entry Grid.Column="1" Placeholder="Update your password" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand" PlaceholderColor="Black"/>
+                            <Entry Text="{Binding Password}" Grid.Column="1" Placeholder="Update your password" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand" PlaceholderColor="Black"/>
                     </Grid>
                 </Frame>
 
@@ -81,7 +81,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Label Text="Email:" Grid.Column="0"  Margin="0,6,0,0" TextColor="Black"/>
-                            <Entry Grid.Column="1" Placeholder="Update your email" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand"  PlaceholderColor="Black"/>
+                            <Entry Text="{Binding Email}" Grid.Column="1" Placeholder="Update your email" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand"  PlaceholderColor="Black"/>
                     </Grid>
                 </Frame>
                 <Frame HasShadow="false" Padding="5,0" CornerRadius="3" Grid.Row="7" BackgroundColor="#023e8a" Margin="0,0,0,5" >
@@ -92,7 +92,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Label Text="Age:" Grid.Column="0"  Margin="0,6,0,0" TextColor="Black"/>
-                            <Entry Grid.Column="1" Placeholder="Update your age" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand"  PlaceholderColor="Black"/>
+                            <Entry Text="{Binding Age}" Grid.Column="1" Placeholder="Update your age" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand"  PlaceholderColor="Black"/>
                     </Grid>
                 </Frame>
 

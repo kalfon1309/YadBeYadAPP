@@ -14,12 +14,13 @@ namespace YadBeYadAPP.ViewModels
     {
         public UpdateProfileViewModel()
         {
-            FirstName = string.Empty;
-            LastName = string.Empty;
-            UserName = string.Empty;
-            Email = string.Empty;
-            Password = string.Empty;
-            Age = default(int);
+            User currentUser = ((App)App.Current).CurrentUser;
+            FirstName = currentUser.FirstName;
+            LastName = currentUser.LastName;
+            UserName = currentUser.UserName;
+            Email = currentUser.Email;
+            Password = currentUser.Pass;
+            Age = currentUser.Age;
             status = string.Empty;
             FirstNameError = string.Empty;
             LastNameError = string.Empty;
@@ -98,20 +99,20 @@ namespace YadBeYadAPP.ViewModels
                     if (b)
                     {
                         Status = "Sign Up Completed:)";
-                        //await App.Current.MainPage.DisplayAlert("Success", Status, "ok");
+                        await App.Current.MainPage.DisplayAlert("Success", Status, "ok");
                     }
 
                     else
                     {
                         Status = "Something Went Wrong...";
-                        //await App.Current.MainPage.DisplayAlert("Failed", Status, "ok");
+                        await App.Current.MainPage.DisplayAlert("Failed", Status, "ok");
                     }
 
                 }
                 else
                 {
                     Status = "Email or/and User Name has/have already been used";
-                    //await App.Current.MainPage.DisplayAlert("Failed", Status, "ok");
+                    await App.Current.MainPage.DisplayAlert("Failed", Status, "ok");
                 }
 
 
@@ -119,7 +120,7 @@ namespace YadBeYadAPP.ViewModels
             catch (Exception)
             {
                 Status = "Something Went Wrong...";
-                //await App.Current.MainPage.DisplayAlert("Failed", Status, "ok");
+                await App.Current.MainPage.DisplayAlert("Failed", Status, "ok");
             }
         }
 
@@ -357,6 +358,7 @@ namespace YadBeYadAPP.ViewModels
 
         #region Events
 
+        public event Action<Page> Push;
 
         #endregion
 

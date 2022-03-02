@@ -18,6 +18,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
+                
 
                 <Label Text="Attractions" FontFamily="Secular One" FontSize="25" TextColor="Black" FontAttributes="Bold" 
                     VerticalOptions="CenterAndExpand" 
