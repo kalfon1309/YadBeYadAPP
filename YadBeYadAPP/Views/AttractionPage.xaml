@@ -23,9 +23,11 @@
                 <Label Text="Attractions" FontFamily="Secular One" FontSize="25" TextColor="Black" FontAttributes="Bold" 
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand" Grid.Row="0" />
-                
-                
 
+            
+
+                
+                
 
             </Grid>
         </StackLayout>
