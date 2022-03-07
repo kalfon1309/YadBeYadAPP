@@ -10,7 +10,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -20,41 +20,41 @@
 
 
                 </Grid.RowDefinitions>
-                    <Label Text="YadBeYad" FontFamily="Secular One" FontSize="25" TextColor="Black" FontAttributes="Bold" 
+                    <Label Text="YadBeYad" FontFamily="Secular One" FontSize="55" TextColor="Black" FontAttributes="Bold" 
                     VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="CenterAndExpand" Grid.Row="0" />
+                    HorizontalOptions="CenterAndExpand" Grid.Row="0"  />
 
-                    <Image  Source="YadBeYadLogo.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  WidthRequest="85" Grid.Row="1"/>
-                <Frame HasShadow="false" Padding="5,0" CornerRadius="3" Grid.Row="2" BackgroundColor="#C9CFED" >
+                <Image  Source="YadBeYadLogo.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  WidthRequest="150" Grid.Row="1" />
+                <Frame HasShadow="false" Padding="10,0" CornerRadius="3" Grid.Row="2" BackgroundColor="#C9CFED" Margin="0,20,0,0" WidthRequest="80" HeightRequest="50">
 
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Image Source="EmailLogo.png" Grid.Column="0" HeightRequest="15"/>
-                        <Entry Grid.Column="1" Placeholder="Enter your email" Text="{Binding Email}" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand"/>
+                        <Image Source="EmailLogo.png" Grid.Column="0" HeightRequest="30"/>
+                        <Entry Grid.Column="1" Placeholder="Enter your email" Text="{Binding Email}" HorizontalTextAlignment="Start"   FontSize="16" HorizontalOptions="FillAndExpand" />
                     </Grid>
                 </Frame>
-                <Frame HasShadow="false" Padding="5,0" CornerRadius="3" Grid.Row="3" BackgroundColor="#C9CFED" >
+                <Frame HasShadow="false" Padding="3,0" CornerRadius="3" Grid.Row="3" BackgroundColor="#C9CFED"  Margin="0,5,0,0" >
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Image Source="KeyIcon.png" Grid.Column="0" HeightRequest="15"/>
-                        <Entry Grid.Column="1" Placeholder="Enter your password" Text="{Binding Password}" HorizontalTextAlignment="Start"  FontSize="Micro" HorizontalOptions="FillAndExpand"/>
+                        <Image Source="KeyIcon.png" Grid.Column="0" HeightRequest="30"/>
+                        <Entry Grid.Column="1" Placeholder="Enter your password" Text="{Binding Password}" HorizontalTextAlignment="Start"  FontSize="16" HorizontalOptions="FillAndExpand" Margin="0,15,0,0"/>
                     </Grid>
                 </Frame>
 
-                <Button  Text="Forgot your password?" FontFamily="Uchen" FontSize="8" TextColor="#4860DE" FontAttributes="Bold"  
+                <Button  Text="Forgot your password?" FontFamily="Uchen" FontSize="16" TextColor="#4860DE" FontAttributes="Bold"  
                     VerticalOptions="CenterAndExpand" BackgroundColor="Transparent"
                     HorizontalOptions="CenterAndExpand" Grid.Row="4" />
                 
-                    <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" WidthRequest="100" HeightRequest="30" Grid.Row="5" Command="{Binding LoginCommand}" Text="Sign In" FontSize="8" FontFamily="Secular One" FontAttributes="Bold"/>
-                    <Label Padding="0,0" Text="-OR-" FontFamily="Unkempt" FontSize="10" TextColor="#4860DE" FontAttributes="Bold" Margin="0,10,0,0"
+                    <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" WidthRequest="170" HeightRequest="50" CornerRadius="40" Grid.Row="5" Command="{Binding LoginCommand}" Text="Sign In" FontSize="18" FontFamily="Secular One" FontAttributes="Bold"/>
+                    <Label Padding="0,0" Text="-OR-" FontFamily="Unkempt" FontSize="20" TextColor="#4860DE" FontAttributes="Bold" Margin="0,15,0,0"
                     HorizontalOptions="CenterAndExpand"  Grid.Row="6"  />
-                <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  WidthRequest="100" Grid.Row="7" VerticalOptions="CenterAndExpand" Text="New account" Command="{Binding ToSignUpCommand}" FontSize="8" FontFamily="Secular One" FontAttributes="Bold"/>
+                <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  WidthRequest="170" Grid.Row="7" HeightRequest="50"  CornerRadius="40" VerticalOptions="CenterAndExpand" Text="New account" Command="{Binding ToSignUpCommand}" FontSize="18" FontFamily="Secular One" FontAttributes="Bold"/>
 
 
 
