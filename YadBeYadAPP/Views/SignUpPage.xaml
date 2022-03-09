@@ -120,7 +120,7 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="ChildIcon.png" Grid.Column="0" HeightRequest="30"/>
-                            <Entry Grid.Column="1"  Placeholder="Enter your Age" Text="{Binding Age}" HorizontalTextAlignment="Start"   FontSize="16" HorizontalOptions="FillAndExpand"/>
+                            <Entry Grid.Column="1" Keyboard="Numeric"  Placeholder="Enter your Age" Text="{Binding Age}" HorizontalTextAlignment="Start"   FontSize="16" HorizontalOptions="FillAndExpand"/>
                         </Grid>
                     </Frame>
                     <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" WidthRequest="150" HeightRequest="60"

@@ -30,16 +30,16 @@
                 </Grid.ColumnDefinitions>
 
 
-                <Button BackgroundColor="#6482EE" HorizontalOptions="EndAndExpand"  VerticalOptions="EndAndExpand" WidthRequest="50" HeightRequest="20"
-                                Grid.Row="0" Text="Activity" Command="{Binding ToActivityPageCommand}" TextColor="Gold" FontSize="8" Padding="0" Margin="25,0,0,3" FontAttributes="Bold" Grid.Column="1"/>
+                <Button BackgroundColor="#6482EE" HorizontalOptions="EndAndExpand"  VerticalOptions="EndAndExpand" WidthRequest="85" HeightRequest="40"
+                                Grid.Row="0" Text="Activity" Command="{Binding ToActivityPageCommand}" TextColor="Gold" FontSize="18" Padding="0" Margin="25,-10,0,13" FontAttributes="Bold" Grid.Column="1"/>
 
-                <Label Text="Profile" FontFamily="Secular One" FontSize="25" TextColor="Black" FontAttributes="Bold" 
+                <Label Text="Profile" FontFamily="Secular One" FontSize="55" TextColor="Black" FontAttributes="Bold" 
                     VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="EndAndExpand" Grid.Column="0"  Grid.Row="0" />
+                    HorizontalOptions="EndAndExpand" Grid.Column="0"  Grid.Row="0" Margin="0,0,0,0" />
 
-                <Image  Source="YadBeYadLogo.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  WidthRequest="85" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Margin="0,0,0,15"/>
+                <Image  Source="YadBeYadLogo.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  WidthRequest="155" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Margin="0,0,0,15"/>
 
-                <Label   FontFamily="Secular One" FontSize="12" TextColor="Black" FontAttributes="Bold" 
+                <Label   FontFamily="Secular One" FontSize="30" TextColor="Black" FontAttributes="Bold" 
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="StartAndExpand" Grid.Column="0" Grid.Row="2">
                     <Label.FormattedText>
@@ -52,7 +52,7 @@
                 </Label>
 
 
-                <Label  FontFamily="Secular One" FontSize="12" TextColor="Black" FontAttributes="Bold" 
+                <Label  FontFamily="Secular One" FontSize="30" TextColor="Black" FontAttributes="Bold" Margin="0,5,0,0"
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="StartAndExpand" Grid.Column="0" Grid.Row="3">
                     <Label.FormattedText>
@@ -61,9 +61,9 @@
                             <Span Text="{Binding LastName}"/>
                         </FormattedString>
                     </Label.FormattedText>
-                </Label> 
+                </Label>
 
-                <Label  FontFamily="Secular One" FontSize="12" TextColor="Black" FontAttributes="Bold" 
+                <Label  FontFamily="Secular One" FontSize="30" TextColor="Black" FontAttributes="Bold" Margin="0,5,0,0"
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="StartAndExpand" Grid.Column="0" Grid.Row="4">
                     <Label.FormattedText>
@@ -74,7 +74,7 @@
                     </Label.FormattedText>
                 </Label>
 
-                <Label  FontFamily="Secular One" FontSize="12" TextColor="Black" FontAttributes="Bold" 
+                <Label  FontFamily="Secular One" FontSize="30" TextColor="Black" FontAttributes="Bold" Margin="0,5,0,0"
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="StartAndExpand" Grid.Column="0" Grid.Row="5">
                     <Label.FormattedText>
@@ -85,7 +85,7 @@
                     </Label.FormattedText>
                 </Label>
 
-                <Label  FontFamily="Secular One" FontSize="12" TextColor="Black" FontAttributes="Bold" 
+                <Label  FontFamily="Secular One" FontSize="30" TextColor="Black" FontAttributes="Bold" Margin="0,5,0,0"
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="StartAndExpand" Grid.Column="0" Grid.Row="6">
                     <Label.FormattedText>
@@ -96,7 +96,7 @@
                     </Label.FormattedText>
                 </Label>
 
-                <Label  FontFamily="Secular One" FontSize="12" TextColor="Black" FontAttributes="Bold" 
+                <Label  FontFamily="Secular One" FontSize="30" TextColor="Black" FontAttributes="Bold" Margin="0,5,0,0"
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="StartAndExpand" Grid.Column="0" Grid.Row="7">
                     <Label.FormattedText>
@@ -107,16 +107,16 @@
                     </Label.FormattedText>
                 </Label>
 
-                <Image  Source="RotatedPalm.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" WidthRequest="30" Grid.Row="2"/>
-                <Image  Source="RotatedPalm.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" WidthRequest="30" Grid.Row="3"/>
-                <Image  Source="RotatedPalm.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" WidthRequest="30" Grid.Row="4"/>
-                <Image  Source="RotatedPalm.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" WidthRequest="30" Grid.Row="5"/>
-                <Image  Source="RotatedPalm.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" WidthRequest="30" Grid.Row="6"/>
-                <Image  Source="RotatedPalm.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" WidthRequest="30" Grid.Row="7"/>
+                <Image  Source="RotatedPalm.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" WidthRequest="30" Grid.Row="2" Margin="0,5,0,0"/>
+                <Image  Source="RotatedPalm.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" WidthRequest="30" Grid.Row="3" Margin="0,5,0,0"/>
+                <Image  Source="RotatedPalm.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" WidthRequest="30" Grid.Row="4" Margin="0,5,0,0"/>
+                <Image  Source="RotatedPalm.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" WidthRequest="30" Grid.Row="5" Margin="0,5,0,0"/>
+                <Image  Source="RotatedPalm.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" WidthRequest="30" Grid.Row="6" Margin="0,5,0,0"/>
+                <Image  Source="RotatedPalm.png" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" WidthRequest="30" Grid.Row="7" Margin="0,5,0,0"/>
 
 
-                <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" WidthRequest="100" HeightRequest="40"
-                                Grid.Row="8" Grid.ColumnSpan="2" Grid.Column="0" Text="Update" TextColor="Gold" FontSize="15"   FontAttributes="Bold" Command="{Binding ToUpdatePageCommand}" />
+                <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" CornerRadius="40" WidthRequest="150" HeightRequest="60" Margin="0,15,0,0"
+                                Grid.Row="8" Grid.ColumnSpan="2" Grid.Column="0" Text="Update" TextColor="Gold" FontSize="25"   FontAttributes="Bold" Command="{Binding ToUpdatePageCommand}" />
 
             </Grid>
 

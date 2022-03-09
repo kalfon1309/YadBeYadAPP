@@ -22,7 +22,7 @@ namespace YadBeYadAPP.ViewModels
             UserName = string.Empty;
             Email = string.Empty;
             Password = string.Empty;
-            Age = default(int);
+            Age = string.Empty;
             status = string.Empty;
             FirstNameError = string.Empty;
             LastNameError = string.Empty;
@@ -48,7 +48,7 @@ namespace YadBeYadAPP.ViewModels
                 PasswordError = string.Empty;
 
                 if (string.IsNullOrEmpty(FirstName) || string.IsNullOrEmpty(LastName) || string.IsNullOrEmpty(UserName) || string.IsNullOrEmpty(Email)
-                    || string.IsNullOrEmpty(Password) || !ValidateEmail() || !ValidateName(FirstName) || !ValidateName(LastName) || Age == 0 )
+                    || string.IsNullOrEmpty(Password) || !ValidateEmail() || !ValidateName(FirstName) || !ValidateName(LastName) || string.IsNullOrEmpty(Age) )
                 {
                     if (string.IsNullOrEmpty(FirstName))
                         FirstNameError = "Required Field";
@@ -68,7 +68,7 @@ namespace YadBeYadAPP.ViewModels
                     else if (!ValidateEmail())
                         EmailError = "Email Not Valid";
 
-                    if (Age == 0)
+                    if (string.IsNullOrEmpty(Age))
                         AgeError = "Required Field";
                   
                     if (string.IsNullOrEmpty(Password))
@@ -87,7 +87,7 @@ namespace YadBeYadAPP.ViewModels
                             Email = Email,
                             Pass = Password,
                             UserName = UserName,
-                            Age = Age,
+                            Age = int.Parse(Age),
                             FirstName = FirstName,
                             LastName = LastName,
                             Rates = new List<Rate>(),
@@ -236,9 +236,9 @@ namespace YadBeYadAPP.ViewModels
                 }
             }
         }
-        private int age;
+        private string age;
 
-        public int Age
+        public string Age
         {
             get => age;
             set
