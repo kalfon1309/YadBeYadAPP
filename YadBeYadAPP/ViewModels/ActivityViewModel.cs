@@ -6,5 +6,6 @@ namespace YadBeYadAPP.ViewModels
 {
     class ActivityViewModel
     {
+       
     }
 }

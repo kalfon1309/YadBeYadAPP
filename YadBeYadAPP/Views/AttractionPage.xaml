@@ -10,24 +10,30 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                
-                
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
 
-                
 
-                <Label Text="Attractions" FontFamily="Secular One" FontSize="25" TextColor="Black" FontAttributes="Bold" 
+              
+
+
+                <Label Text="Attractions" FontFamily="Secular One" FontSize="55" TextColor="Black" FontAttributes="Bold" 
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand" Grid.Row="0" />
 
-            
+                <Image  Source="YadBeYadLogo.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  WidthRequest="150" Grid.Row="1" />
 
-                
-                
+                <Frame CornerRadius="40" BackgroundColor="#C9CFED" HasShadow="false" Padding="10,0"  Grid.Row="2"  Margin="30,20,030,0" WidthRequest="80" HeightRequest="50">
+
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="SearchIcon.png" Grid.Column="0" HeightRequest="30"/>
+                        <Entry Text="{Binding Text}" Grid.Column="1" Placeholder="Search for attraction"  HorizontalTextAlignment="Start"   FontSize="16" HorizontalOptions="Fill"/>
+                    </Grid>
+                </Frame>
+
+
 
             </Grid>
         </StackLayout>

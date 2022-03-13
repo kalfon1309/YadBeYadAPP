@@ -36,14 +36,14 @@
                         <Entry Grid.Column="1" Placeholder="Enter your email" Text="{Binding Email}" HorizontalTextAlignment="Start"   FontSize="16" HorizontalOptions="FillAndExpand" />
                     </Grid>
                 </Frame>
-                <Frame HasShadow="false" Padding="3,0" CornerRadius="3" Grid.Row="3" BackgroundColor="#C9CFED"  Margin="0,5,0,0" >
+                <Frame HasShadow="false" Padding="3,0" CornerRadius="3" Grid.Row="3" BackgroundColor="#C9CFED"  HeightRequest="50" Margin="0,5,0,0" >
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Image Source="KeyIcon.png" Grid.Column="0" HeightRequest="30"/>
-                        <Entry Grid.Column="1" Placeholder="Enter your password" Text="{Binding Password}" HorizontalTextAlignment="Start"  FontSize="16" HorizontalOptions="FillAndExpand" Margin="0,15,0,0"/>
+                        <Entry Grid.Column="1" Placeholder="Enter your password" Text="{Binding Password}" HorizontalTextAlignment="Start"  FontSize="16" HorizontalOptions="FillAndExpand"/>
                     </Grid>
                 </Frame>
 
