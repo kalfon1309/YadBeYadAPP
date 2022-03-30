@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using YadBeYadAPP.ViewModels;
 
 namespace YadBeYadAPP.Views
 {
@@ -15,6 +16,9 @@ namespace YadBeYadAPP.Views
         public AttractionPage()
         {
             InitializeComponent();
+            AttractionPageViewModel aPVM = new AttractionPageViewModel();
+            BindingContext = aPVM;
+            aPVM.Push += (p) => Navigation.PushAsync(p);
         }
     }
 }

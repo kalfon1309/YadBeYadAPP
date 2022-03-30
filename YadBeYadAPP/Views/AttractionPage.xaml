@@ -2,7 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="YadBeYadAPP.Views.AttractionPage">
-    <ContentPage.Content>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary" IconImageSource="ManIcon.png" Command="{Binding ProfileCommand}"/>
+
+    </ContentPage.ToolbarItems>
+
+
+            <ContentPage.Content>
         <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#CAFBFE" Padding="10">
 
             <Grid HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" RowSpacing="5" >

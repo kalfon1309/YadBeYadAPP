@@ -2,6 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="YadBeYadAPP.Views.Activity">
+
+    
+    
+    
     <ContentPage.Content>
         <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#CAFBFE" Padding="10,10,10,0">
 
@@ -26,17 +30,17 @@
                 <Image  Source="YadBeYadLogo.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  WidthRequest="155" Grid.Row="1"/>
 
                 <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" WidthRequest="150"  CornerRadius="40" HeightRequest="80" Margin="0,6,0,0"
-                                Grid.Row="3" Text="Reviews" Command="{Binding ToLoginPageCommand}" FontSize="16" FontFamily="Secular One" FontAttributes="Bold"/>
+                                Grid.Row="3" Text="Reviews" Command="{Binding ReviewsCommand}" FontSize="16" FontFamily="Secular One" FontAttributes="Bold"/>
 
                 <Label Text="-OR-" TextColor="#6482EE" FontSize="24" Grid.Row="4"  Margin="0,6,0,0" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" FontAttributes="Bold" ></Label>
 
                 <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" WidthRequest="150" CornerRadius="40" HeightRequest="80" Margin="0,6,0,0"
-                                Grid.Row="5" Text="Ratings" Command="{Binding ToSignUpPageCommand}" FontSize="16" FontFamily="Secular One" FontAttributes="Bold"/>
+                                Grid.Row="5" Text="Ratings" Command="{Binding RatingsCommand}" FontSize="16" FontFamily="Secular One" FontAttributes="Bold"/>
 
                 <Label Text="-OR-" TextColor="#6482EE" FontSize="24" Grid.Row="6"  Margin="0,6,0,0" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" FontAttributes="Bold" ></Label>
 
                 <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" WidthRequest="150" CornerRadius="40" HeightRequest="80" Margin="0,6,0,0"
-                                Grid.Row="7" Text="Favorites" Command="{Binding ToSignUpPageCommand}" FontSize="16" FontFamily="Secular One" FontAttributes="Bold"/>
+                                Grid.Row="7" Text="Favorites" Command="{Binding FavoritesCommand}" FontSize="16" FontFamily="Secular One" FontAttributes="Bold"/>
 
 
 

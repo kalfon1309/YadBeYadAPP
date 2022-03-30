@@ -48,7 +48,7 @@ namespace YadBeYadAPP.ViewModels
                 PasswordError = string.Empty;
 
                 if (string.IsNullOrEmpty(FirstName) || string.IsNullOrEmpty(LastName) || string.IsNullOrEmpty(UserName) || string.IsNullOrEmpty(Email)
-                    || string.IsNullOrEmpty(Password) || !ValidateEmail() || !ValidateName(FirstName) || !ValidateName(LastName) || string.IsNullOrEmpty(Age) )
+                    || string.IsNullOrEmpty(Password) || !ValidateEmail() || ValidateName(FirstName) || ValidateName(LastName) || string.IsNullOrEmpty(Age) )
                 {
                     if (string.IsNullOrEmpty(FirstName))
                         FirstNameError = "Required Field";

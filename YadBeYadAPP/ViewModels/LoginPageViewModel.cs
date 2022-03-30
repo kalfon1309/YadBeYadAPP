@@ -36,7 +36,7 @@ namespace YadBeYadAPP.ViewModels
                 if(u != null)
                 {
                     ((App)App.Current).CurrentUser = u;
-                    Push?.Invoke(new ProfilePage());
+                    Push?.Invoke(new AttractionPage());
                 }
             }
             catch(Exception)

@@ -6,19 +6,15 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using YadBeYadAPP.ViewModels;
 
 namespace YadBeYadAPP.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Activity : ContentPage
+    public partial class RatingsPage : ContentPage
     {
-        public Activity()
+        public RatingsPage()
         {
             InitializeComponent();
-            ActivityViewModel aVM = new ActivityViewModel();
-            BindingContext = aVM;
-            aVM.Push += (p) => Navigation.PushAsync(p);
         }
     }
 }
