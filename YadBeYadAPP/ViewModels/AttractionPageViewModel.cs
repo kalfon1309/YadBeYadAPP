@@ -12,10 +12,13 @@ namespace YadBeYadAPP.ViewModels
 {
     class AttractionPageViewModel : BaseViewModel
     {
-        public AttractionPageViewModel()
+        public AttractionPageViewModel(List<Attraction> attractions)
         {
-            GetAllAttractions();
-            attractions = new ObservableCollection<Attraction>();
+            Attractions = new ObservableCollection<Attraction>();
+            foreach (Attraction attraction in attractions)
+            {
+                Attractions.Add(attraction);
+            }
             lastText = string.Empty;
             Text = string.Empty;
             ProfileCommand = new Command(ToProfilePage);
@@ -30,6 +33,12 @@ namespace YadBeYadAPP.ViewModels
         {
             YadBeYadAPIProxy proxy = YadBeYadAPIProxy.CreateProxy();
             allAtttractions = await proxy.GetAttractionsAsync();
+            Attractions = new ObservableCollection<Attraction>();
+            foreach (Attraction attraction in allAtttractions)
+            {
+                Attractions.Add(attraction);
+            }
+
         }
 
 
@@ -55,15 +64,9 @@ namespace YadBeYadAPP.ViewModels
                 }
             }
         }
-        private ObservableCollection<Attraction> attractions;
 
-        public ObservableCollection<Attraction> Attractions
-        {
-            get
-            {
-                return attractions;
-            }
-        }
+        public ObservableCollection<Attraction> Attractions { get; set; }
+
         private List<Attraction> allAtttractions;
 
 

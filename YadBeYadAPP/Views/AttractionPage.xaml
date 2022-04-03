@@ -1,7 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="YadBeYadAPP.Views.AttractionPage">
+             x:Class="YadBeYadAPP.Views.AttractionPage"
+             xmlns:viewmodels="clr-namespace:YadBeYadAPP.ViewModels"
+             xmlns:models="clr-namespace:YadBeYadApp.Models"
+             x:DataType="viewmodels:AttractionPageViewModel">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Order="Primary" IconImageSource="ManIcon.png" Command="{Binding ProfileCommand}"/>
@@ -16,10 +19,8 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
 
@@ -28,11 +29,11 @@
 
                 <Label Text="Attractions" FontFamily="Secular One" FontSize="55" TextColor="Black" FontAttributes="Bold" 
                     VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="CenterAndExpand" Grid.Row="0" />
+                    HorizontalOptions="CenterAndExpand" Grid.Row="0" Margin="0,20,0,0" />
 
                 <Image  Source="YadBeYadLogo.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  WidthRequest="150" Grid.Row="1" />
 
-                <Frame CornerRadius="40" BackgroundColor="#C9CFED" HasShadow="false" Padding="10,0"  Grid.Row="2"  Margin="30,20,030,0" WidthRequest="80" HeightRequest="20">
+                <Frame CornerRadius="40" BackgroundColor="#C9CFED" HasShadow="false" Padding="10,0"  Grid.Row="2"  Margin="30,20,30,0" WidthRequest="80" HeightRequest="60">
 
                     <Grid >
                         <Grid.ColumnDefinitions>
@@ -44,23 +45,28 @@
                     </Grid>
                 </Frame>
 
-                <Button BackgroundColor="#2dc653" HorizontalOptions="Start"  VerticalOptions="CenterAndExpand" WidthRequest="150"  CornerRadius="25" HeightRequest="70" Margin="30,20,0,0"
-                                Grid.Row="3" Text="Dead sea" Command="{Binding ToLoginPageCommand}" FontSize="14" FontFamily="Secular One" FontAttributes="Bold"/>
 
-                <Button BackgroundColor="#2dc653" HorizontalOptions="End"  VerticalOptions="CenterAndExpand" WidthRequest="150"  CornerRadius="25" HeightRequest="70" Margin="0,20,30,0"
-                                Grid.Row="3" Text="Luna Park" Command="{Binding ToLoginPageCommand}" FontSize="14" FontFamily="Secular One" FontAttributes="Bold"/>
+                <CarouselView  IndicatorView="indicatorView" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="3" ItemsSource="{Binding Attractions}" Margin="30,50,30,0" HeightRequest="70">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Attraction">
+                            <Button BackgroundColor="#2dc653" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"  CornerRadius="50" HeightRequest="70"
+                                Grid.Row="3" Text="{Binding AttName}"  FontSize="18" FontFamily="Secular One" FontAttributes="Bold"/>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                    <CarouselView.EmptyView>
+                        <ContentView>
+                            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                <Label Text="Hiiiiiiiiiiiii" FontSize="20"/>
+                            </StackLayout>
+                        </ContentView>
+                    </CarouselView.EmptyView>
+                </CarouselView>
+                <IndicatorView x:Name="indicatorView" IndicatorColor="LightGray" SelectedIndicatorColor="DarkGray" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" MaximumVisible="20" Margin="0,0,0,-1050"/>
 
-                <Button BackgroundColor="#2dc653" HorizontalOptions="Start"  VerticalOptions="CenterAndExpand" WidthRequest="150"  CornerRadius="25" HeightRequest="70" Margin="30,20,0,0"
-                                Grid.Row="4" Text="The Western wall" Command="{Binding ToLoginPageCommand}" FontSize="13" FontFamily="Secular One" FontAttributes="Bold"/>
 
-                <Button BackgroundColor="#2dc653" HorizontalOptions="End"  VerticalOptions="CenterAndExpand" WidthRequest="150"  CornerRadius="25" HeightRequest="70" Margin="0,20,30,0"
-                                Grid.Row="4" Text="Kineret" Command="{Binding ToLoginPageCommand}" FontSize="14" FontFamily="Secular One" FontAttributes="Bold"/>
+               
 
-                <Button BackgroundColor="#2dc653" HorizontalOptions="Start"  VerticalOptions="CenterAndExpand" WidthRequest="150"  CornerRadius="25" HeightRequest="70" Margin="30,20,0,0"
-                                Grid.Row="5" Text="Mount hermon" Command="{Binding ToLoginPageCommand}" FontSize="14" FontFamily="Secular One" FontAttributes="Bold"/>
 
-                <Button BackgroundColor="#2dc653" HorizontalOptions="End"  VerticalOptions="CenterAndExpand" WidthRequest="150"  CornerRadius="25" HeightRequest="70" Margin="0,20,30,0"
-                                Grid.Row="5" Text="Mitzpe ramon" Command="{Binding ToLoginPageCommand}" FontSize="14" FontFamily="Secular One" FontAttributes="Bold"/>
 
             </Grid>
         </StackLayout>

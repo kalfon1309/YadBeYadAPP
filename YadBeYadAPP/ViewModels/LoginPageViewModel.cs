@@ -36,7 +36,9 @@ namespace YadBeYadAPP.ViewModels
                 if(u != null)
                 {
                     ((App)App.Current).CurrentUser = u;
-                    Push?.Invoke(new AttractionPage());
+
+                    List<Attraction> allAtttractions = await proxy.GetAttractionsAsync();
+                    Push?.Invoke(new AttractionPage(allAtttractions));
                 }
             }
             catch(Exception)

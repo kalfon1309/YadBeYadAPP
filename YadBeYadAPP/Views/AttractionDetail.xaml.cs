@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace YadBeYadAPP.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LunaPark : ContentPage
+    public partial class AttractionDetail : ContentPage
     {
-        public LunaPark()
+        public AttractionDetail()
         {
             InitializeComponent();
         }

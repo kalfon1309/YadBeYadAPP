@@ -22,7 +22,7 @@ namespace YadBeYadAPP
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new AttractionPage());
+            MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()
