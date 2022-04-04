@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using YadBeYadAPP.ViewModels;
+using YadBeYadApp.ViewModels;
 
-namespace YadBeYadAPP.Views
+namespace YadBeYadApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class StartPage : ContentPage

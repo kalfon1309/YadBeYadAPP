@@ -7,7 +7,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace YadBeYadAPP.Controls
+namespace YadBeYadApp.Controls
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AttractionsSquare : ContentView

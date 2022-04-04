@@ -5,9 +5,9 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using YadBeYadApp.Models;
 using YadBeYadApp.Services;
-using YadBeYadAPP.Views;
+using YadBeYadApp.Views;
 
-namespace YadBeYadAPP.ViewModels
+namespace YadBeYadApp.ViewModels
 {
     class StartPageViewModel:BaseViewModel
     {

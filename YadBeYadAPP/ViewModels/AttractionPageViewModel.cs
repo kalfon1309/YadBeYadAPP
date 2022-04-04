@@ -6,19 +6,16 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using YadBeYadApp.Models;
 using YadBeYadApp.Services;
-using YadBeYadAPP.Views;
+using YadBeYadApp.Views;
 
-namespace YadBeYadAPP.ViewModels
+namespace YadBeYadApp.ViewModels
 {
     class AttractionPageViewModel : BaseViewModel
     {
-        public AttractionPageViewModel(List<Attraction> attractions)
+        public AttractionPageViewModel()
         {
-            Attractions = new ObservableCollection<Attraction>();
-            foreach (Attraction attraction in attractions)
-            {
-                Attractions.Add(attraction);
-            }
+            Attractions = new ObservableCollection<Attraction>(CurrentApp.attractions);
+            
             lastText = string.Empty;
             Text = string.Empty;
             ProfileCommand = new Command(ToProfilePage);

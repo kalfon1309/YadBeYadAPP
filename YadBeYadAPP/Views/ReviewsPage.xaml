@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="YadBeYadAPP.Views.ReviewsPage">
+             xmlns:viewmodel="clr-namespace:YadBeYadApp.ViewModels"
+             xmlns:model="clr-namespace:YadBeYadApp.Models"
+             x:Class="YadBeYadApp.Views.ReviewsPage" x:DataType="viewmodel:ReviewsPageViewModel">
     <ContentPage.Content>
         <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#CAFBFE" Padding="10">
 
@@ -9,8 +11,6 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-
 
                 </Grid.RowDefinitions>
 
@@ -22,6 +22,17 @@
 
 
             </Grid>
+            <CollectionView EmptyView="אין לך נתונים להצגה" ItemsSource="{Binding AttractionReviews}" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Review">
+                        <StackLayout>
+                            <Label Text="{Binding Attraction.AttName}"/>
+                            <Label Text="{Binding ReviewDate}"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                
+            </CollectionView>
 
 
 

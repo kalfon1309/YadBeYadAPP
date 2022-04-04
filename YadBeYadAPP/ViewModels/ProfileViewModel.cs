@@ -4,9 +4,9 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 using YadBeYadApp.Models;
-using YadBeYadAPP.Views;
+using YadBeYadApp.Views;
 
-namespace YadBeYadAPP.ViewModels
+namespace YadBeYadApp.ViewModels
 {
     class ProfileViewModel:BaseViewModel
     {

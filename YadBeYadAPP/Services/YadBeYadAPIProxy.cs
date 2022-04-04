@@ -12,7 +12,7 @@ using System.Text.Encodings.Web;
 using Xamarin.Forms;
 using Xamarin.Essentials;
 using System.IO;
-using YadBeYadAPP;
+using YadBeYadApp;
 
 namespace YadBeYadApp.Services
 {

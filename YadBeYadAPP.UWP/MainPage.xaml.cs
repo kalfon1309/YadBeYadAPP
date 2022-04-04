@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace YadBeYadAPP.UWP
+namespace YadBeYadApp.UWP
 {
     public sealed partial class MainPage
     {
@@ -21,7 +21,7 @@ namespace YadBeYadAPP.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new YadBeYadAPP.App());
+            LoadApplication(new YadBeYadApp.App());
         }
     }
 }

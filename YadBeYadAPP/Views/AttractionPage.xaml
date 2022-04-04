@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="YadBeYadAPP.Views.AttractionPage"
-             xmlns:viewmodels="clr-namespace:YadBeYadAPP.ViewModels"
+             x:Class="YadBeYadApp.Views.AttractionPage"
+             xmlns:viewmodels="clr-namespace:YadBeYadApp.ViewModels"
              xmlns:models="clr-namespace:YadBeYadApp.Models"
              x:DataType="viewmodels:AttractionPageViewModel">
 

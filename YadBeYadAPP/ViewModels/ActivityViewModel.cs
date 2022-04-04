@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
-using YadBeYadAPP.Views;
+using YadBeYadApp.Views;
 
-namespace YadBeYadAPP.ViewModels
+namespace YadBeYadApp.ViewModels
 {
     class ActivityViewModel : BaseViewModel
     {

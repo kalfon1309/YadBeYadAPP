@@ -6,13 +6,14 @@ using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 using YadBeYadApp.Services;
 
-namespace YadBeYadAPP.ViewModels
+namespace YadBeYadApp.ViewModels
 {
     class BaseViewModel : INotifyPropertyChanged
     {
         #region Properties
 
         protected YadBeYadAPIProxy YadProxy;
+        protected App CurrentApp = (App)Application.Current;
         #endregion
         #region Events
 

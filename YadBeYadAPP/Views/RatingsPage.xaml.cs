@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace YadBeYadAPP.Views
+namespace YadBeYadApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RatingsPage : ContentPage

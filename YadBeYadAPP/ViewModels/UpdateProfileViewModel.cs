@@ -8,7 +8,7 @@ using Xamarin.Forms;
 using YadBeYadApp.Models;
 using YadBeYadApp.Services;
 
-namespace YadBeYadAPP.ViewModels
+namespace YadBeYadApp.ViewModels
 {
     class UpdateProfileViewModel:BaseViewModel
     {

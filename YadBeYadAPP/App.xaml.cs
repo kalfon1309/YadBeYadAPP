@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using YadBeYadApp.Models;
-using YadBeYadAPP.Views;
+using YadBeYadApp.Services;
+using YadBeYadApp.Views;
 
-namespace YadBeYadAPP
+namespace YadBeYadApp
 {
     public partial class App : Application
     {
@@ -17,16 +19,29 @@ namespace YadBeYadAPP
         }
 
         public User CurrentUser { get; set; }
+        public List<Attraction> attractions { get; set; }
 
         public App()
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginPage());
+            MainPage = new NavigationPage(new StartPage());
         }
 
-        protected override void OnStart()
+        protected override async void OnStart()
         {
+            YadBeYadAPIProxy proxy = YadBeYadAPIProxy.CreateProxy();
+            //await MainPage.Navigation.PushModalAsync(new LoadingPage());
+            try
+            {
+                attractions = await proxy.GetAttractionsAsync();
+                //MainPage.Navigation.PopModalAsync();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(  "Boom");
+            }
+
         }
 
         protected override void OnSleep()

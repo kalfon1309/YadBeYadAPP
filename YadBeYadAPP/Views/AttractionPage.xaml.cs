@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using YadBeYadApp.Models;
-using YadBeYadAPP.ViewModels;
+using YadBeYadApp.ViewModels;
 
-namespace YadBeYadAPP.Views
+namespace YadBeYadApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AttractionPage : ContentPage
     {
-        public AttractionPage(List<Attraction> attractions)
+        public AttractionPage()
         {
             InitializeComponent();
-            AttractionPageViewModel aPVM = new AttractionPageViewModel(attractions);
+            AttractionPageViewModel aPVM = new AttractionPageViewModel();
             BindingContext = aPVM;
             aPVM.Push += (p) => Navigation.PushAsync(p);
         }

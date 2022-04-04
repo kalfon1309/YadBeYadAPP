@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using YadBeYadApp.Services;
 
-namespace YadBeYadAPP
+namespace YadBeYadApp
 {
     public partial class MainPage : ContentPage
     {

@@ -5,9 +5,9 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using YadBeYadApp.Models;
 using YadBeYadApp.Services;
-using YadBeYadAPP.Views;
+using YadBeYadApp.Views;
 
-namespace YadBeYadAPP.ViewModels
+namespace YadBeYadApp.ViewModels
 {
     class LoginPageViewModel:BaseViewModel
     {
@@ -38,7 +38,7 @@ namespace YadBeYadAPP.ViewModels
                     ((App)App.Current).CurrentUser = u;
 
                     List<Attraction> allAtttractions = await proxy.GetAttractionsAsync();
-                    Push?.Invoke(new AttractionPage(allAtttractions));
+                    Push?.Invoke(new AttractionPage());
                 }
             }
             catch(Exception)
