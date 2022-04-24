@@ -20,8 +20,26 @@ namespace YadBeYadApp.Views
             AttractionPageViewModel aPVM = new AttractionPageViewModel();
             BindingContext = aPVM;
             aPVM.Push += (p) => Navigation.PushAsync(p);
+
+
+
+
+            #region Properties
+
+            #endregion
+
+
+            #region Commands
+
+
+
+            #endregion
+
+            #region Events
+
+            #endregion
         }
 
-      
+
     }
 }

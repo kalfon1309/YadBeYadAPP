@@ -15,6 +15,22 @@ namespace YadBeYadApp.Views
         public AttractionDetail()
         {
             InitializeComponent();
+
+
+
+
+            #region Properties
+
+            #endregion
+
+
+            #region Commands
+
+            #endregion
+
+            #region Events
+
+            #endregion
         }
     }
 }

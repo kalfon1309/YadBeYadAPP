@@ -46,11 +46,11 @@
                 </Frame>
 
 
-                <CarouselView  IndicatorView="indicatorView" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="3" ItemsSource="{Binding Attractions}" Margin="30,50,30,0" HeightRequest="70">
+                <CarouselView x:Name="crouselview" IndicatorView="indicatorView" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="3" ItemsSource="{Binding Attractions}" Margin="30,50,30,0" HeightRequest="70">
                     <CarouselView.ItemTemplate>
                         <DataTemplate x:DataType="models:Attraction">
                             <Button BackgroundColor="#2dc653" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"  CornerRadius="50" HeightRequest="70"
-                                Grid.Row="3" Text="{Binding AttName}"  FontSize="18" FontFamily="Secular One" FontAttributes="Bold"/>
+                                Grid.Row="3" Text="{Binding AttName}"  FontSize="18" FontFamily="Secular One" FontAttributes="Bold"  Command="{Binding Source={x:Reference crouselview},Path=BindingContext.AttractionCommand}"/>
                         </DataTemplate>
                     </CarouselView.ItemTemplate>
                     <CarouselView.EmptyView>

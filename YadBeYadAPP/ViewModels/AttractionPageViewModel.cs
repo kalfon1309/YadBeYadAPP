@@ -19,11 +19,17 @@ namespace YadBeYadApp.ViewModels
             lastText = string.Empty;
             Text = string.Empty;
             ProfileCommand = new Command(ToProfilePage);
+            AttractionCommand = new Command(ToDetailAttPage);
         }
 
         private void ToProfilePage()
         {
             Push?.Invoke(new ProfilePage());
+        }
+
+        private void ToDetailAttPage()
+        {
+            Push?.Invoke(new AttractionDetail());
         }
 
         private async void GetAllAttractions()
@@ -72,6 +78,8 @@ namespace YadBeYadApp.ViewModels
         #region Commands
 
         public ICommand ProfileCommand { get; set; }
+
+        public ICommand AttractionCommand { get; set; }
 
         #endregion
 
