@@ -8,6 +8,7 @@ namespace YadBeYadApp.Models
     {
         public User()
         {
+            Favorites = new List<Favorite>();
             Rates = new List<Rate>();
             Reviews = new List<Review>();
         }
@@ -20,6 +21,7 @@ namespace YadBeYadApp.Models
         public string UserName { get; set; }
         public string Pass { get; set; }
 
+        public virtual List<Favorite> Favorites { get; set; }
         public virtual List<Rate> Rates { get; set; }
         public virtual List<Review> Reviews { get; set; }
     }

@@ -9,6 +9,7 @@ namespace YadBeYadApp.Models
     {
         public Attraction()
         {
+            Favorites = new List<Favorite>();
             Rates = new List<Rate>();
             Reviews = new List<Review>();
         }
@@ -20,6 +21,7 @@ namespace YadBeYadApp.Models
         public string GeographyLoc { get; set; }
         public bool IsPrice { get; set; }
 
+        public virtual List<Favorite> Favorites { get; set; }
         public virtual List<Rate> Rates { get; set; }
         public virtual List<Review> Reviews { get; set; }
     }
