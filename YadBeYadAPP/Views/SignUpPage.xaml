@@ -49,7 +49,7 @@
 
                     <Image  Source="YadBeYadLogo.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  WidthRequest="150" Grid.Row="1"/>
 
-                    <Label Style="{StaticResource Validator}" Text="{Binding EmailError}" Grid.Row="2"/>
+                    <Label Style="{StaticResource Validator}" Text="{Binding EmailError}" Grid.Row="2" FontSize="15"  Margin="0,0,0,-20"/>
 
                     <Frame HasShadow="false" Padding="5,0" CornerRadius="3" Grid.Row="3" BackgroundColor="#C9CFED" Margin="0,20,0,0" HeightRequest="30">
 
@@ -63,7 +63,7 @@
                         </Grid>
                     </Frame>
 
-                    <Label Style="{StaticResource Validator}" Text="{Binding PasswordError}" Grid.Row="4"/>
+                    <Label Style="{StaticResource Validator}" Text="{Binding PasswordError}" FontSize="15" Grid.Row="4" Margin="0,0,0,-20"/>
                     <Frame HasShadow="false" Padding="5,0" CornerRadius="3" Grid.Row="5" BackgroundColor="#C9CFED" Margin="0,20,0,0" HeightRequest="30">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -76,7 +76,7 @@
                     </Frame>
 
 
-                    <Label Style="{StaticResource Validator}" Text="{Binding FirstNameError}" Grid.Row="6"/>
+                    <Label Style="{StaticResource Validator}" Text="{Binding FirstNameError}" Grid.Row="6" FontSize="15" Margin="0,0,0,-20"/>
                     <Frame HasShadow="false" Padding="5,0" CornerRadius="3" Grid.Row="7" BackgroundColor="#C9CFED" Margin="0,20,0,0" HeightRequest="30" >
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -88,7 +88,7 @@
                         </Grid>
                     </Frame>
 
-                    <Label Style="{StaticResource Validator}" Text="{Binding LastNameError}" Grid.Row="8"/>
+                    <Label Style="{StaticResource Validator}" Text="{Binding LastNameError}" Grid.Row="8" FontSize="15" Margin="0,0,0,-20"/>
                     <Frame HasShadow="false" Padding="5,0" CornerRadius="3" Grid.Row="9" BackgroundColor="#C9CFED" Margin="0,20,0,0" HeightRequest="30">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -100,7 +100,7 @@
                         </Grid>
                     </Frame>
 
-                    <Label Style="{StaticResource Validator}" Text="{Binding UserNameError}" Grid.Row="10"/>
+                    <Label Style="{StaticResource Validator}" Text="{Binding UserNameError}" Grid.Row="10" FontSize="15" Margin="0,0,0,-20"/>
                     <Frame HasShadow="false" Padding="5,0" CornerRadius="3" Grid.Row="11" BackgroundColor="#C9CFED" Margin="0,20,0,0" HeightRequest="30">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -112,7 +112,7 @@
                         </Grid>
                     </Frame>
 
-                    <Label Style="{StaticResource Validator}" Text="{Binding AgeError}" Grid.Row="12"/>
+                    <Label Style="{StaticResource Validator}" Text="{Binding AgeError}" Grid.Row="12" FontSize="15" Margin="0,0,0,-20"/>
                     <Frame HasShadow="false" Padding="5,0" CornerRadius="3" Grid.Row="13" BackgroundColor="#C9CFED" Margin="0,20,0,0" HeightRequest="30">
                         <Grid>
                             <Grid.ColumnDefinitions>

@@ -48,7 +48,7 @@ namespace YadBeYadApp.ViewModels
                 PasswordError = string.Empty;
 
                 if (string.IsNullOrEmpty(FirstName) || string.IsNullOrEmpty(LastName) || string.IsNullOrEmpty(UserName) || string.IsNullOrEmpty(Email)
-                    || string.IsNullOrEmpty(Password) || !ValidateEmail() || ValidateName(FirstName) || ValidateName(LastName) || string.IsNullOrEmpty(Age) )
+                    || Password.Length < 8 || !ValidateEmail() || ValidateName(FirstName) || ValidateName(LastName) || string.IsNullOrEmpty(Age) )
                 {
                     if (string.IsNullOrEmpty(FirstName))
                         FirstNameError = "Required Field";
@@ -71,8 +71,8 @@ namespace YadBeYadApp.ViewModels
                     if (string.IsNullOrEmpty(Age))
                         AgeError = "Required Field";
                   
-                    if (string.IsNullOrEmpty(Password))
-                        PasswordError = "Required Field";
+                    if (Password.Length < 8)
+                        PasswordError = "Password must be at least 8 characters";
 
                     await App.Current.MainPage.DisplayAlert("Failed", "Fail!!!!", "ok");
                     return;

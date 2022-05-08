@@ -43,18 +43,16 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Image Source="KeyIcon.png" Grid.Column="0" HeightRequest="30"/>
-                        <Entry Grid.Column="1" Placeholder="Enter your password" Text="{Binding Password}" HorizontalTextAlignment="Start"  FontSize="16" HorizontalOptions="FillAndExpand"/>
+                        <Entry Grid.Column="1" Placeholder="Enter your password" Text="{Binding Password}" IsPassword="True" HorizontalTextAlignment="Start"  FontSize="16" HorizontalOptions="FillAndExpand"/>
                     </Grid>
                 </Frame>
 
-                <Button  Text="Forgot your password?" FontFamily="Uchen" FontSize="16" TextColor="#4860DE" FontAttributes="Bold"  
-                    VerticalOptions="CenterAndExpand" BackgroundColor="Transparent"
-                    HorizontalOptions="CenterAndExpand" Grid.Row="4" />
-                
-                    <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" WidthRequest="170" HeightRequest="50" CornerRadius="40" Grid.Row="5" Command="{Binding LoginCommand}" Text="Sign In" FontSize="18" FontFamily="Secular One" FontAttributes="Bold"/>
-                    <Label Padding="0,0" Text="-OR-" FontFamily="Unkempt" FontSize="20" TextColor="#4860DE" FontAttributes="Bold" Margin="0,15,0,0"
+
+
+                <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" WidthRequest="170" HeightRequest="50" CornerRadius="40" Grid.Row="5" Command="{Binding LoginCommand}" Text="Sign In" Margin="0,-25,0,0" FontSize="18" FontFamily="Secular One" FontAttributes="Bold"/>
+                    <Label Padding="0,0" Text="-OR-" FontFamily="Unkempt" FontSize="20" TextColor="#4860DE" FontAttributes="Bold" Margin="0,0,0,20"
                     HorizontalOptions="CenterAndExpand"  Grid.Row="6"  />
-                <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  WidthRequest="170" Grid.Row="7" HeightRequest="50"  CornerRadius="40" VerticalOptions="CenterAndExpand" Text="New account" Command="{Binding ToSignUpCommand}" FontSize="18" FontFamily="Secular One" FontAttributes="Bold"/>
+                <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  WidthRequest="170" Grid.Row="7" HeightRequest="50"  CornerRadius="40" VerticalOptions="CenterAndExpand" Text="New account" Command="{Binding ToSignUpCommand}" Margin="0,-25,0,0" FontSize="18" FontFamily="Secular One" FontAttributes="Bold"/>
 
 
 

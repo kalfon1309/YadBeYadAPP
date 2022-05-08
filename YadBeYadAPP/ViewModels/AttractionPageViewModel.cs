@@ -15,11 +15,28 @@ namespace YadBeYadApp.ViewModels
         public AttractionPageViewModel()
         {
             Attractions = new ObservableCollection<Attraction>(CurrentApp.attractions);
+            allAtttractions = CurrentApp.attractions;
             
             lastText = string.Empty;
             Text = string.Empty;
             ProfileCommand = new Command(ToProfilePage);
             AttractionCommand = new Command(ToDetailAttPage);
+            ShowAllCommand = new Command(ShowAll);
+            SearchCommand = new Command(Search);
+        }
+
+        private void Search()
+        {
+            List<Attraction> temp = new List<Attraction>();
+            foreach (Attraction attraction in Attractions)
+            {
+                if(attraction.AttName.Contains(Text))
+                {
+                    temp.Add(attraction);
+                }
+            }
+            Attractions = new ObservableCollection<Attraction>(temp);
+            OnPropertyChanged("Attractions");
         }
 
         private void ToProfilePage()
@@ -27,6 +44,11 @@ namespace YadBeYadApp.ViewModels
             Push?.Invoke(new ProfilePage());
         }
 
+        private void ShowAll()
+        {
+            Attractions = new ObservableCollection<Attraction>(allAtttractions);
+            OnPropertyChanged("Attractions");
+        }
         private void ToDetailAttPage()
         {
             Push?.Invoke(new AttractionDetail());
@@ -44,6 +66,8 @@ namespace YadBeYadApp.ViewModels
 
         }
 
+
+       
 
 
         #region Properties
@@ -72,14 +96,17 @@ namespace YadBeYadApp.ViewModels
 
         private List<Attraction> allAtttractions;
 
-
+     
         #endregion
 
         #region Commands
 
         public ICommand ProfileCommand { get; set; }
 
+        public ICommand ShowAllCommand { get; set; }
+
         public ICommand AttractionCommand { get; set; }
+        public ICommand SearchCommand { get; set; }
 
         #endregion
 

@@ -21,6 +21,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
 
@@ -40,7 +41,7 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Image Source="SearchIcon.png" Grid.Column="0" HeightRequest="30"/>
+                        <ImageButton Padding="0" Source="SearchIcon.png" Grid.Column="0" HeightRequest="30" Command="{Binding SearchCommand}" BackgroundColor="Transparent"/>
                         <Entry Text="{Binding Text}" Grid.Column="1" Placeholder="Search for attraction"  HorizontalTextAlignment="Start"   FontSize="16" HorizontalOptions="Fill"/>
                     </Grid>
                 </Frame>
@@ -64,8 +65,9 @@
                 <IndicatorView x:Name="indicatorView" IndicatorColor="LightGray" SelectedIndicatorColor="DarkGray" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" MaximumVisible="20" Margin="0,0,0,-1050"/>
 
 
-               
 
+                <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  WidthRequest="170" Grid.Row="4" HeightRequest="50"  CornerRadius="40" VerticalOptions="CenterAndExpand" Text="Show all" 
+                        Command="{Binding ShowAllCommand}" Margin="0,45,0,0" FontSize="18" FontFamily="Secular One" FontAttributes="Bold"/>
 
 
             </Grid>
