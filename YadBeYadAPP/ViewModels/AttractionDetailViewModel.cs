@@ -15,7 +15,21 @@ namespace YadBeYadApp.ViewModels
             //insert values to properties
             this.currentAttraction = chosenAttraction;
             this.AttractionName = chosenAttraction.AttName;
-            this.AttractionRate = string.Format("{0:0.0}",AvgRate());
+            double rate = AvgRate();
+            this.AttractionRate = string.Format("{0:0.0}", rate);
+
+            if(rate >=0 && rate <= 3)
+            {
+                this.RateBackgroundColor = Color.Red;
+            }
+            else if(rate <= 6)
+            {
+                this.RateBackgroundColor = Color.Orange;
+            }
+            else
+            {
+                this.RateBackgroundColor = Color.Lime;
+            }
 
             bool isFavorite = false;
             foreach (Favorite favorite in ((App)App.Current).CurrentUser.Favorites)
@@ -54,6 +68,8 @@ namespace YadBeYadApp.ViewModels
         private async void HeartFill()
         {
             
+
+
         }
 
         private void ToProfilePage()
@@ -142,6 +158,22 @@ namespace YadBeYadApp.ViewModels
                 }
             }
         }
+
+        private Color rateBackgroundColor;
+
+        public Color RateBackgroundColor
+        {
+            get => rateBackgroundColor;
+            set
+            {
+                if (value != rateBackgroundColor)
+                {
+                    rateBackgroundColor = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
 
 
         #endregion

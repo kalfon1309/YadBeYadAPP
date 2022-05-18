@@ -20,7 +20,7 @@ namespace YadBeYadApp.ViewModels
             lastText = string.Empty;
             Text = string.Empty;
             ProfileCommand = new Command(ToProfilePage);
-            AttractionCommand = new Command(ToDetailAttPage);
+            AttractionCommand = new Command<Attraction>(ToDetailAttPage);
             ShowAllCommand = new Command(ShowAll);
             SearchCommand = new Command(Search);
         }
@@ -49,9 +49,9 @@ namespace YadBeYadApp.ViewModels
             Attractions = new ObservableCollection<Attraction>(allAtttractions);
             OnPropertyChanged("Attractions");
         }
-        private void ToDetailAttPage()
+        private void ToDetailAttPage(Attraction att)
         {
-            Push?.Invoke(new AttractionDetail());
+            Push?.Invoke(new AttractionDetail(att));
         }
 
         private async void GetAllAttractions()
