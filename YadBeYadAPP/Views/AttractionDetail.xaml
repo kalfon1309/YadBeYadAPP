@@ -1,7 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="YadBeYadApp.Views.AttractionDetail">
+             x:Class="YadBeYadApp.Views.AttractionDetail"
+              xmlns:viewmodels="clr-namespace:YadBeYadApp.ViewModels"
+             xmlns:models="clr-namespace:YadBeYadApp.Models"
+             x:DataType="viewmodels:AttractionDetailViewModel">
 
 
     <ContentPage.ToolbarItems>
@@ -17,20 +20,23 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                  
                 </Grid.RowDefinitions>
 
 
-                <Label Text="{Binding AttractionName}"  FontFamily="Secular One" FontSize="55" TextColor="Black" FontAttributes="Bold" 
+                <Label Text="{Binding AttractionName}"  FontFamily="Secular One" FontSize="55" TextColor="#4860DE" FontAttributes="Bold" 
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand" Grid.Row="0" Margin="0,20,0,20" />
 
-                <Frame Grid.Row="1" WidthRequest="50" HeightRequest="50" CornerRadius="75" BackgroundColor="{Binding RateBackgroundColor}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Frame Grid.Row="1" WidthRequest="25" HeightRequest="25" CornerRadius="50" BackgroundColor="{Binding RateBackgroundColor}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                     
-                    <Label Text="{Binding AttractionRate}"  FontFamily="Secular One" FontSize="25" TextColor="Black" FontAttributes="Bold" 
+                    <Label Text="{Binding AttractionRate}"  FontFamily="Secular One" FontSize="15" TextColor="Black" FontAttributes="Bold" 
                         VerticalOptions="CenterAndExpand" 
                         HorizontalOptions="CenterAndExpand"  Margin="0,0,0,0" />
 
                 </Frame>
+
+
 
             </Grid>
 

@@ -31,13 +31,15 @@ namespace YadBeYadApp.ViewModels
                 this.RateBackgroundColor = Color.Lime;
             }
 
-            bool isFavorite = false;
+            isFavorite = false;
+            currentFavorite = null;
             foreach (Favorite favorite in ((App)App.Current).CurrentUser.Favorites)
             {
                 if(favorite.IsActive && favorite.AttractionId == chosenAttraction.AttractionId)
                 {
                     this.HeartImageUrl = "filledHeartIcon.png";
                     isFavorite = true;
+                    currentFavorite = favorite;
                 }
             }
 
@@ -45,6 +47,7 @@ namespace YadBeYadApp.ViewModels
             {
                 this.HeartImageUrl = "emptyHeartIcon.png";
             }
+
 
             this.ReviewsToShow = new ObservableCollection<ReviewInList>();
             foreach (Review review in chosenAttraction.Reviews)
@@ -68,7 +71,56 @@ namespace YadBeYadApp.ViewModels
         private async void HeartFill()
         {
             
-
+            if(isFavorite && currentFavorite != null)
+            {
+                try
+                {
+                    bool isSuccess = await YadProxy.CancelFavorite(currentFavorite);
+                    if(isSuccess)
+                    {
+                        ((App)App.Current).CurrentUser.Favorites.Remove(currentFavorite);
+                        this.HeartImageUrl = "emptyHeartIcon.png";
+                        isFavorite = false;
+                        currentFavorite = null;
+                    }
+                    else
+                    {
+                        await App.Current.MainPage.DisplayAlert("Failed", "Something went wrong...", "ok");
+                    }
+                }
+                catch(Exception e)
+                {
+                    await App.Current.MainPage.DisplayAlert("Failed", "Something went wrong...", "ok");
+                }
+            }
+            else
+            {
+                currentFavorite = new Favorite
+                {
+                    
+                   
+                    User = ((App)App.Current).CurrentUser,
+                    Attraction = currentAttraction
+                };
+                try
+                {
+                    Favorite isSuccess = await YadProxy.AddFavorite(currentFavorite);
+                    if (isSuccess != null)
+                    {
+                        this.HeartImageUrl = "filledHeartIcon.png";
+                        isFavorite = true;
+                        currentFavorite = isSuccess;
+                    }
+                    else
+                    {
+                        await App.Current.MainPage.DisplayAlert("Failed", "Something went wrong...", "ok");
+                    }
+                }
+                catch (Exception e)
+                {
+                    await App.Current.MainPage.DisplayAlert("Failed", "Something went wrong...", "ok");
+                }
+            }
 
         }
 
@@ -103,9 +155,12 @@ namespace YadBeYadApp.ViewModels
             
         }
 
-      
+
 
         #region Properties
+
+        private bool isFavorite;
+        private Favorite currentFavorite;
 
         private Attraction currentAttraction;
 
