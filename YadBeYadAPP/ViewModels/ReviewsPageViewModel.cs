@@ -12,10 +12,10 @@ namespace YadBeYadApp.ViewModels
     class ReviewsPageViewModel : BaseViewModel
     {
 
-        public ReviewsPageViewModel()
+        public ReviewsPageViewModel(Review r)
         {
             AttractionReviews = new ObservableCollection<Review>(CurrentApp.CurrentUser.Reviews);
-
+            this.commentText = r.Comment;
 
 
 
@@ -37,15 +37,31 @@ namespace YadBeYadApp.ViewModels
         public ObservableCollection<Review> Reviews { get; set; }
 
         private List<Attraction> allReviews;
-    
-        
+
+
         #region Properties
 
-
+        private string commentText;
         public ObservableCollection<Review> AttractionReviews { get; set; }
+
+
+        public string CommentText
+        {
+            get => commentText;
+            set
+            {
+                if (value != commentText)
+                {
+                    commentText = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+
         #endregion
 
-     
+
         #region Commands
 
 

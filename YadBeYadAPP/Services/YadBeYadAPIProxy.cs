@@ -270,7 +270,8 @@ namespace YadBeYadApp.Services
             {
                 JsonSerializerOptions options = new JsonSerializerOptions
                 {
-                    PropertyNameCaseInsensitive = true
+                    PropertyNameCaseInsensitive = true,
+                    ReferenceHandler = ReferenceHandler.Preserve
                 };
                 string json = JsonSerializer.Serialize<Favorite>(favorite, options);
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");

@@ -82,6 +82,11 @@ namespace YadBeYadApp.ViewModels
                         this.HeartImageUrl = "emptyHeartIcon.png";
                         isFavorite = false;
                         currentFavorite = null;
+                        User u = await YadProxy.LoginAsync(((App)App.Current).CurrentUser.Email, ((App)App.Current).CurrentUser.Pass);
+                        if (u != null)
+                        {
+                            ((App)App.Current).CurrentUser = u;
+                        }
                     }
                     else
                     {
@@ -97,10 +102,10 @@ namespace YadBeYadApp.ViewModels
             {
                 currentFavorite = new Favorite
                 {
-                    
-                   
+
                     User = ((App)App.Current).CurrentUser,
-                    Attraction = currentAttraction
+                    Attraction = currentAttraction,
+                    IsActive = true
                 };
                 try
                 {
@@ -110,6 +115,11 @@ namespace YadBeYadApp.ViewModels
                         this.HeartImageUrl = "filledHeartIcon.png";
                         isFavorite = true;
                         currentFavorite = isSuccess;
+                        User u = await YadProxy.LoginAsync(((App)App.Current).CurrentUser.Email, ((App)App.Current).CurrentUser.Pass);
+                        if (u != null)
+                        {
+                            ((App)App.Current).CurrentUser = u;
+                        }
                     }
                     else
                     {
@@ -166,6 +176,8 @@ namespace YadBeYadApp.ViewModels
 
         private string attractionName;
 
+        private string commentText;
+
         public string AttractionName
         {
             get => attractionName;
@@ -174,6 +186,19 @@ namespace YadBeYadApp.ViewModels
                 if (value != attractionName)
                 {
                     attractionName = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public string CommentText
+        {
+            get => commentText;
+            set
+            {
+                if (value != commentText)
+                {
+                    commentText = value;
                     OnPropertyChanged();
                 }
             }
