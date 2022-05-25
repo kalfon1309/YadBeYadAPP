@@ -21,6 +21,16 @@
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand" Grid.Row="0"  />
                 <Image  Source="YadBeYadLogo.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  WidthRequest="155" Grid.Row="1"/>
+                <CollectionView EmptyView="אין לך נתונים להצגה" ItemsSource="{Binding Favorites}" >
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Favorite">
+                            <StackLayout>
+                                <Label Text="{Binding Attraction.AttName}"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
 
 
             </Grid>

@@ -41,12 +41,17 @@
 
                 <CarouselView  x:Name="crouselview"  IndicatorView="indicatorView" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="2" ItemsSource="{Binding ReviewsToShow}" Margin="30,60,30,0" HeightRequest="100" >
                     <CarouselView.ItemTemplate>
-                        <DataTemplate x:DataType="models:Review">
+                        <DataTemplate x:DataType="viewmodels:ReviewInList">
                             <Frame BackgroundColor="#EAEDED" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"  CornerRadius="50" HeightRequest="150" BorderColor="Black"
                                 Grid.Row="2">
-                                <Label Text="{Binding Comment}"  FontSize="18" FontFamily="Secular One" FontAttributes="Bold" />
+                                <StackLayout>
+                                    <Label Text="{Binding UserName,StringFormat='{0}:'}"  FontSize="18" FontFamily="Secular One" FontAttributes="Bold" HorizontalOptions="StartAndExpand" TextDecorations="Underline"  VerticalOptions="CenterAndExpand" />
+
+                                    <Label Text="{Binding Comment}"  FontSize="18" FontFamily="Secular One" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" />
+
+                                </StackLayout>
                             </Frame>
-                        </DataTemplate>
+                            </DataTemplate>
                     </CarouselView.ItemTemplate>
                     <CarouselView.EmptyView>
                         <ContentView>
@@ -61,7 +66,7 @@
 
 
                 <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  WidthRequest="220" Grid.Row="3" HeightRequest="70"  CornerRadius="20" VerticalOptions="CenterAndExpand" Text="Add Comment &amp; Rate" 
-                        Command="{Binding ShowAllCommand}" Margin="0,45,0,0" FontSize="15" FontFamily="Secular One" FontAttributes="Bold"/>
+                         Margin="0,45,0,0" FontSize="15" FontFamily="Secular One" FontAttributes="Bold"/>
 
             </Grid>
 

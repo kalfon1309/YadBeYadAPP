@@ -57,7 +57,7 @@ namespace YadBeYadApp.ViewModels
                     this.ReviewsToShow.Add(new ReviewInList
                     {
                         UserName = review.User.UserName,
-                        Text = review.Comment,
+                        Comment = review.Comment,
                         Date = review.ReviewDate.ToString("dd/MM/yyyy")
                     });
                 }
@@ -308,16 +308,16 @@ namespace YadBeYadApp.ViewModels
             }
         }
 
-        private string text;
+        private string comment;
 
-        public string Text
+        public string Comment
         {
-            get => text;
+            get => comment;
             set
             {
-                if (value != text)
+                if (value != comment)
                 {
-                    text = value;
+                    comment = value;
                     OnPropertyChanged();
                 }
             }

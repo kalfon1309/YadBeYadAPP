@@ -262,7 +262,90 @@ namespace YadBeYadApp.Services
                 return null;
             }
         }
+        public async Task<List<Review>> GetReviewsByUser(int userId)
+        {
+            try
+            {
+                JsonSerializerOptions options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true,
+                    ReferenceHandler = ReferenceHandler.Preserve
+                };
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/GetReviewsByUser?userId={userId}");
+                if (response.IsSuccessStatusCode)
+                {
 
+                    string jsonContent = await response.Content.ReadAsStringAsync();
+                    List<Review> list = JsonSerializer.Deserialize<List<Review>>(jsonContent, options);
+                    return list;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
+        public async Task<List<Rate>> GetRatesByUser(int userId)
+        {
+            try
+            {
+                JsonSerializerOptions options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true,
+                    ReferenceHandler = ReferenceHandler.Preserve
+                };
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/GetRatesByUser?userId={userId}");
+                if (response.IsSuccessStatusCode)
+                {
+
+                    string jsonContent = await response.Content.ReadAsStringAsync();
+                    List<Rate> list = JsonSerializer.Deserialize<List<Rate>>(jsonContent, options);
+                    return list;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
+        public async Task<List<Favorite>> GetFavoritesByUser(int userId)
+        {
+            try
+            {
+                JsonSerializerOptions options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true,
+                    ReferenceHandler = ReferenceHandler.Preserve
+                };
+                HttpResponseMessage response = await this.client.GetAsync($"{this.baseUri}/GetFavoritesByUser?userId={userId}");
+                if (response.IsSuccessStatusCode)
+                {
+
+                    string jsonContent = await response.Content.ReadAsStringAsync();
+                    List<Favorite> list = JsonSerializer.Deserialize<List<Favorite>>(jsonContent, options);
+                    return list;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+        }
 
         public async Task<bool> CancelFavorite(Favorite favorite)
         {

@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:YadBeYadApp.ViewModels"
              xmlns:model="clr-namespace:YadBeYadApp.Models"
-             x:Class="YadBeYadApp.Views.ReviewsPage" x:DataType="viewmodel:ReviewsPageViewModel">
+             x:Class="YadBeYadApp.Views.ReviewsPage" 
+             x:DataType="viewmodel:ReviewsPageViewModel">
     <ContentPage.Content>
         <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#CAFBFE" Padding="10">
 
@@ -11,7 +12,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
-
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
 
@@ -21,18 +22,45 @@
                 <Image  Source="YadBeYadLogo.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  WidthRequest="155" Grid.Row="1"/>
 
 
+
+                <CarouselView  x:Name="crouselview"  HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="2" ItemsSource="{Binding Reviews}" Margin="30,70,30,0" HeightRequest="120" >
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Review">
+                            <Frame BackgroundColor="#EAEDED" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"  CornerRadius="50" HeightRequest="200" BorderColor="Black"
+                                Grid.Row="2">
+                                <StackLayout>
+                                    <Label Text="{Binding Attraction.AttName}"  FontSize="18" FontFamily="Secular One" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextDecorations="Underline"  VerticalOptions="CenterAndExpand" />
+                                    <Label Text="{Binding Comment}"  FontSize="18" FontFamily="Secular One" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" />
+                                    <Label Text="{Binding ReviewDate}" FontSize="12" FontFamily="Secular One" FontAttributes="Bold" HorizontalOptions="EndAndExpand"  VerticalOptions="End" > </Label>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                    <CarouselView.EmptyView>
+                        <ContentView>
+                            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                <Label Text="No comments" FontSize="20"/>
+                            </StackLayout>
+                        </ContentView>
+                    </CarouselView.EmptyView>
+                </CarouselView>
+                <IndicatorView x:Name="indicatorView" IndicatorColor="LightGray" SelectedIndicatorColor="DarkGray" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" MaximumVisible="20" Margin="0,0,0,-1050"/>
+
+
+
+
+
+           
+
+
             </Grid>
-            <CollectionView EmptyView="אין לך נתונים להצגה" ItemsSource="{Binding AttractionReviews}" >
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="model:Review">
-                        <StackLayout>
-                            <Label Text="{Binding Attraction.AttName}"/>
-                            <Label Text="{Binding ReviewDate}"/>
-                        </StackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-                
-            </CollectionView>
+           
+            
+            
+            
+            
+            
+           
 
 
 

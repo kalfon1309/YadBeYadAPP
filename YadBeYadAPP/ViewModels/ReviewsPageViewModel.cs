@@ -12,10 +12,10 @@ namespace YadBeYadApp.ViewModels
     class ReviewsPageViewModel : BaseViewModel
     {
 
-        public ReviewsPageViewModel(Review r)
+        public ReviewsPageViewModel()
         {
-            AttractionReviews = new ObservableCollection<Review>(CurrentApp.CurrentUser.Reviews);
-            this.commentText = r.Comment;
+            Reviews = new ObservableCollection<Review>();
+            GetReviews();
 
 
 
@@ -36,7 +36,7 @@ namespace YadBeYadApp.ViewModels
 
         public ObservableCollection<Review> Reviews { get; set; }
 
-        private List<Attraction> allReviews;
+        private List<Review> allReviews;
 
 
         #region Properties
@@ -67,6 +67,15 @@ namespace YadBeYadApp.ViewModels
 
         #endregion
 
+        public async void GetReviews()
+        {
+            YadProxy = YadBeYadAPIProxy.CreateProxy();
+            allReviews = await YadProxy.GetReviewsByUser(((App)App.Current).CurrentUser.UserId);
+            foreach(Review r in allReviews)
+            {
+                Reviews.Add(r);
+            }
+        }
 
         #region Events
 

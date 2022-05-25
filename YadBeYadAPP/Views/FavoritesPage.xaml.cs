@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YadBeYadApp.ViewModels;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -15,6 +16,9 @@ namespace YadBeYadApp.Views
         public FavoritesPage()
         {
             InitializeComponent();
+            FavoritesPageViwModel RPVM = new FavoritesPageViwModel();
+            BindingContext = RPVM;
+            RPVM.Push += (p) => Navigation.PushAsync(p);
         }
     }
 }
