@@ -5,24 +5,29 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 using YadBeYadApp.Models;
+using YadBeYadApp.Services;
+using YadBeYadApp.Views;
 
 namespace YadBeYadApp.ViewModels
 {
-    class AttractionDetailViewModel:BaseViewModel
+    class AttractionDetailViewModel : BaseViewModel
     {
         public AttractionDetailViewModel(Attraction chosenAttraction)
         {
             //insert values to properties
             this.currentAttraction = chosenAttraction;
             this.AttractionName = chosenAttraction.AttName;
+
+            RevAndRate = new Command(ToRevAndRate);
+
             double rate = AvgRate();
             this.AttractionRate = string.Format("{0:0.0}", rate);
 
-            if(rate >=0 && rate <= 3)
+            if (rate >= 0 && rate <= 3)
             {
                 this.RateBackgroundColor = Color.Red;
             }
-            else if(rate <= 6)
+            else if (rate <= 6)
             {
                 this.RateBackgroundColor = Color.Orange;
             }
@@ -35,7 +40,7 @@ namespace YadBeYadApp.ViewModels
             currentFavorite = null;
             foreach (Favorite favorite in ((App)App.Current).CurrentUser.Favorites)
             {
-                if(favorite.IsActive && favorite.AttractionId == chosenAttraction.AttractionId)
+                if (favorite.IsActive && favorite.AttractionId == chosenAttraction.AttractionId)
                 {
                     this.HeartImageUrl = "filledHeartIcon.png";
                     isFavorite = true;
@@ -43,7 +48,7 @@ namespace YadBeYadApp.ViewModels
                 }
             }
 
-            if(!isFavorite)
+            if (!isFavorite)
             {
                 this.HeartImageUrl = "emptyHeartIcon.png";
             }
@@ -52,7 +57,7 @@ namespace YadBeYadApp.ViewModels
             this.ReviewsToShow = new ObservableCollection<ReviewInList>();
             foreach (Review review in chosenAttraction.Reviews)
             {
-                if(review.IsActive)
+                if (review.IsActive)
                 {
                     this.ReviewsToShow.Add(new ReviewInList
                     {
@@ -68,15 +73,20 @@ namespace YadBeYadApp.ViewModels
 
         }
 
+        private void ToRevAndRate()
+        {
+            Push?.Invoke(new ProfilePage());
+        }
+
         private async void HeartFill()
         {
-            
-            if(isFavorite && currentFavorite != null)
+
+            if (isFavorite && currentFavorite != null)
             {
                 try
                 {
                     bool isSuccess = await YadProxy.CancelFavorite(currentFavorite);
-                    if(isSuccess)
+                    if (isSuccess)
                     {
                         ((App)App.Current).CurrentUser.Favorites.Remove(currentFavorite);
                         this.HeartImageUrl = "emptyHeartIcon.png";
@@ -93,7 +103,7 @@ namespace YadBeYadApp.ViewModels
                         await App.Current.MainPage.DisplayAlert("Failed", "Something went wrong...", "ok");
                     }
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     await App.Current.MainPage.DisplayAlert("Failed", "Something went wrong...", "ok");
                 }
@@ -133,6 +143,8 @@ namespace YadBeYadApp.ViewModels
             }
 
         }
+
+        
 
         private void ToProfilePage()
         {
@@ -267,9 +279,13 @@ namespace YadBeYadApp.ViewModels
 
         public ICommand RateCommand { get; set; }
 
+        public ICommand RevAndRate { get; set; }
+
         #endregion
 
         #region Events
+
+        public event Action<Page> Push;
 
         #endregion
 

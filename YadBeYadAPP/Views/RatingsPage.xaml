@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-               xmlns:viewmodel="clr-namespace:YadBeYadApp.ViewModels"
+             xmlns:viewmodel="clr-namespace:YadBeYadApp.ViewModels"
              xmlns:model="clr-namespace:YadBeYadApp.Models"
-             x:Class="YadBeYadApp.Views.RatingsPage" x:DataType="viewmodel:RatingsPageViewModel">
-
+             x:Class="YadBeYadApp.Views.RatingsPage" 
+             x:DataType="viewmodel:RatingsPageViewModel">
     <ContentPage.Content>
         <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#CAFBFE" Padding="10">
 
@@ -12,26 +12,49 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
-
-
                 </Grid.RowDefinitions>
 
 
-                <Label Text="Ratings" FontFamily="Secular One" FontSize="55" TextColor="Black" FontAttributes="Bold" 
+                <Label Text="Rates" FontFamily="Secular One" FontSize="55" TextColor="Black" FontAttributes="Bold" 
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand" Grid.Row="0"  />
                 <Image  Source="YadBeYadLogo.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"  WidthRequest="155" Grid.Row="1"/>
-                <CollectionView EmptyView="אין לך נתונים להצגה" ItemsSource="{Binding Rates}" >
-                    <CollectionView.ItemTemplate>
+
+
+
+                <CarouselView  x:Name="crouselview"  HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="2" ItemsSource="{Binding Rates}" Margin="30,70,30,0" HeightRequest="80" >
+                    <CarouselView.ItemTemplate>
                         <DataTemplate x:DataType="model:Rate">
-                            <StackLayout>
-                                <Label Text="{Binding Rates}"/>
-                                <Label Text="{Binding Attraction.AttName}"/>
-                            </StackLayout>
+                            <Frame BackgroundColor="LightGray" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"  CornerRadius="50" HeightRequest="40" BorderColor="Black"
+                                Grid.Row="2">
+                                <StackLayout>
+                                    <Label Text="{Binding Attraction.AttName}"  FontSize="23" FontFamily="Secular One" TextColor="Black" FontAttributes="Bold" Margin="0,-12,0,0" HorizontalOptions="CenterAndExpand" TextDecorations="Underline"  VerticalOptions="CenterAndExpand" />
+                                   
+                                    <Label Text="{Binding Rates}" FontSize="23" FontFamily="Secular One" TextColor="Black" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"  VerticalOptions="Center" ></Label>
+
+                                </StackLayout>
+                            </Frame>
                         </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
+                    </CarouselView.ItemTemplate>
+                    <CarouselView.EmptyView>
+                        <ContentView>
+                            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                <Label Text="No rates to show " FontSize="20"/>
+                            </StackLayout>
+                        </ContentView>
+                    </CarouselView.EmptyView>
+                </CarouselView>
+                <IndicatorView x:Name="indicatorView" IndicatorColor="LightGray" SelectedIndicatorColor="DarkGray" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" MaximumVisible="20" Margin="0,0,0,-1050"/>
+
+
+                <Frame BackgroundColor="White" CornerRadius="100" BorderColor="Black" Grid.Row="3" HeightRequest="60" Margin="130,70,130,0" WidthRequest="80">
+                    <Image  Source="TrashIcon.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="70" WidthRequest="155" Grid.Row="3"/>
+                </Frame>
+
+
+
             </Grid>
 
 
@@ -39,7 +62,7 @@
 
 
 
-          
+
 
 
 

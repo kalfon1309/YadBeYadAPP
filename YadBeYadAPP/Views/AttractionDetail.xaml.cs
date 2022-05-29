@@ -17,8 +17,9 @@ namespace YadBeYadApp.Views
         public AttractionDetail(Attraction att)
         {
             InitializeComponent();
-            this.BindingContext = new AttractionDetailViewModel(att);
-
+            AttractionDetailViewModel aDVM = new AttractionDetailViewModel(att);
+            BindingContext = aDVM;
+            aDVM.Push += (p) => Navigation.PushAsync(p);
 
 
             #region Properties

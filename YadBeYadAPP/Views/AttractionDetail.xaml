@@ -66,7 +66,7 @@
 
 
                 <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  WidthRequest="220" Grid.Row="3" HeightRequest="70"  CornerRadius="20" VerticalOptions="CenterAndExpand" Text="Add Comment &amp; Rate" 
-                         Margin="0,45,0,0" FontSize="15" FontFamily="Secular One" FontAttributes="Bold"/>
+                         Margin="0,45,0,0" FontSize="15" FontFamily="Secular One" FontAttributes="Bold" Command="{Binding RevAndRate}"/>
 
             </Grid>
 
