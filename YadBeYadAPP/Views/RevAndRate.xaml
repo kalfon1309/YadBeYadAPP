@@ -1,12 +1,82 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="YadBeYadAPP.Views.RevAndRate">
+             x:Class="YadBeYadApp.Views.RevAndRate"
+             xmlns:range="clr-namespace:Syncfusion.SfRangeSlider.XForms;assembly=Syncfusion.SfRangeSlider.XForms">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="RatingSlider" TargetType="range:SfRangeSlider">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="Margin" Value="10,0,10,0"/>
+                <Setter Property="Minimum" Value="0"/>
+                <Setter Property="Maximum" Value="10"/>
+                <Setter Property="RangeStart" Value="0"/>
+                <Setter Property="ShowRange" Value="false"/>
+                <Setter Property="SnapsTo" Value="Ticks"/>
+                <Setter Property="TickFrequency" Value="1"/>
+                
+                <!--<Setter Property="Value" Value="{Binding Rating}"/>-->
+                
+                <Setter Property="ShowValueLabel" Value="True"/>
+                <Setter Property="ValueChangeMode" Value="OnThumb"/>
+                
+                <Setter Property="Grid.Row" Value="3"/>
+                
+                <Setter Property="KnobColor" Value="Purple"/>
+                <Setter Property="TrackThickness" Value="5"/>
+                <Setter Property="TrackSelectionColor" Value="Transparent"/>
+                <Setter Property="Orientation" Value="Horizontal"/>
+                <Setter Property="TrackCornerRadius" Value="10"/>
+
+                <Setter Property="TrackColor" Value="#2BCCFF"/>
+                <Setter Property="TickColor" Value="Purple"/>
+                <Setter Property="LabelColor" Value="Black"/>
+                
+                <Setter Property="FontAttribute" Value="Bold"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#CAFBFE" Padding="10,10,10,0">
+
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0" >
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Text="Add Comment:" FontFamily="Secular One" FontSize="20" TextColor="Black" FontAttributes="Bold" TextDecorations="Underline"
+                    VerticalOptions="StartAndExpand" 
+                    HorizontalOptions="StartAndExpand" Grid.Row="0"  Margin="20,40,0,0"/>
+
+                <Frame BackgroundColor="#EAEDED" HorizontalOptions="FillAndExpand"  VerticalOptions="CenterAndExpand" WidthRequest="150" Margin="0,10,0,0" CornerRadius="50" HeightRequest="100" BorderColor="Black" Grid.Row="1"> 
+                    
+                </Frame>
+
+                <Label Text="Add Rating:" FontFamily="Secular One" FontSize="20" TextColor="Black" FontAttributes="Bold" TextDecorations="Underline"
+                    VerticalOptions="StartAndExpand" 
+                    HorizontalOptions="StartAndExpand" Grid.Row="2"  Margin="20,40,0,0"/>
+
+                <range:SfRangeSlider Style="{StaticResource RatingSlider}"/>
+
+
+                <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  WidthRequest="170" Grid.Row="4" HeightRequest="50"  CornerRadius="40" VerticalOptions="CenterAndExpand" Text="Save" 
+                        Margin="0,70,0,0" FontSize="18" FontFamily="Secular One" FontAttributes="Bold"/>
+
+
+            </Grid>
+
+
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

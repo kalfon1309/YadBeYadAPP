@@ -7,6 +7,8 @@ using Xamarin.Forms;
 using YadBeYadApp.Models;
 using YadBeYadApp.Services;
 using YadBeYadApp.Views;
+using YadBeYadAPP.ViewModels;
+using YadBeYadApp.Services;
 
 namespace YadBeYadApp.ViewModels
 {
@@ -75,7 +77,7 @@ namespace YadBeYadApp.ViewModels
 
         private void ToRevAndRate()
         {
-            Push?.Invoke(new ProfilePage());
+            Push?.Invoke(new RevAndRate());
         }
 
         private async void HeartFill()

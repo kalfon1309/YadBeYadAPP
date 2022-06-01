@@ -24,7 +24,7 @@
 
 
 
-                <CarouselView  x:Name="crouselview"  HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="2" ItemsSource="{Binding Rates}" Margin="30,70,30,0" HeightRequest="80" >
+                <CarouselView  x:Name="crouselview" IndicatorView="indicatorView"  HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="2" ItemsSource="{Binding Rates}" Margin="30,70,30,0" HeightRequest="80" >
                     <CarouselView.ItemTemplate>
                         <DataTemplate x:DataType="model:Rate">
                             <Frame BackgroundColor="LightGray" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"  CornerRadius="50" HeightRequest="40" BorderColor="Black"

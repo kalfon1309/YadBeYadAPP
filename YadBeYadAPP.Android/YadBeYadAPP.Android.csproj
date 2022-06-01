@@ -54,6 +54,12 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Syncfusion.Licensing">
+      <Version>20.1.0.58</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfRangeSlider">
+      <Version>20.1.0.58</Version>
+    </PackageReference>
     <PackageReference Include="System.Text.Json">
       <Version>6.0.1</Version>
     </PackageReference>
