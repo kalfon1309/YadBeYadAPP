@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
 using Xamarin.Forms;
 using YadBeYadApp.Models;
 using YadBeYadApp.Services;
@@ -16,10 +17,13 @@ namespace YadBeYadApp.ViewModels
         {
             Reviews = new ObservableCollection<Review>();
             GetReviews();
+            DeleteRevCommand = new Command<Review>(DeleteReview);
 
 
 
-       
+
+
+
         }
 
         //private async void GetAllAttractions()
@@ -40,6 +44,7 @@ namespace YadBeYadApp.ViewModels
 
 
         #region Properties
+        private Review currentReview;
 
         private string commentText;
         public ObservableCollection<Review> AttractionReviews { get; set; }
@@ -57,24 +62,53 @@ namespace YadBeYadApp.ViewModels
                 }
             }
         }
-
+        public Review CurrentReview
+        {
+            get => currentReview;
+            set
+            {
+                if(value != currentReview)
+                {
+                    currentReview = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         #endregion
 
 
         #region Commands
 
+        public ICommand DeleteRevCommand { get; protected set; }
 
         #endregion
 
+        public async void DeleteReview(Review r)
+        {
+            YadProxy = YadBeYadAPIProxy.CreateProxy();
+            bool success = await YadProxy.DeleteReview(r);
+            if(success)
+            {
+                GetReviews();
+            }
+            else
+            {
+                CurrentApp.MainPage.DisplayAlert("Error", "Delete failed", "OK");
+            }
+        }
         public async void GetReviews()
         {
             YadProxy = YadBeYadAPIProxy.CreateProxy();
             allReviews = await YadProxy.GetReviewsByUser(((App)App.Current).CurrentUser.UserId);
-            foreach(Review r in allReviews)
+            if (allReviews != null)
             {
-                Reviews.Add(r);
+                Reviews = new ObservableCollection<Review>(allReviews);
+                OnPropertyChanged("Reviews");
             }
+          
+
+         
         }
 
         #region Events
@@ -83,8 +117,6 @@ namespace YadBeYadApp.ViewModels
 
         #endregion
    
-
-
-
+       
     }
 }

@@ -23,7 +23,7 @@
 
 
 
-                <CarouselView  x:Name="crouselview" IndicatorView="indicatorView" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="2" ItemsSource="{Binding Reviews}" Margin="30,70,30,0" HeightRequest="120" >
+                <CarouselView  x:Name="crouselview" CurrentItem="{Binding CurrentReview}" IndicatorView="indicatorView" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="2" ItemsSource="{Binding Reviews}" Margin="30,70,30,0" HeightRequest="120" >
                     <CarouselView.ItemTemplate>
                         <DataTemplate x:DataType="model:Review">
                             <Frame BackgroundColor="#EAEDED" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"  CornerRadius="50" HeightRequest="200" BorderColor="Black"
@@ -49,7 +49,14 @@
 
 
                 <Frame BackgroundColor="White" CornerRadius="100" BorderColor="Black" Grid.Row="3" HeightRequest="60" Margin="130,70,130,0" WidthRequest="80">
-                    <Image  Source="TrashIcon.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="70" WidthRequest="155" Grid.Row="3"/>
+                    <Image  Source="TrashIcon.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="70" WidthRequest="155" Grid.Row="3">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding DeleteRevCommand}" CommandParameter="{Binding CurrentReview}">
+                                
+                            </TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+                            
                 </Frame>
 
 

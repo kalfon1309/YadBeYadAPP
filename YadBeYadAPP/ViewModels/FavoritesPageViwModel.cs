@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
 using Xamarin.Forms;
 using YadBeYadApp.Models;
 using YadBeYadApp.Services;
@@ -16,7 +17,7 @@ namespace YadBeYadApp.ViewModels
         {
             Favorites = new ObservableCollection<Models.Favorite>();
             GetFavorites();
-
+            DeleteFavoriteCommand = new Command<Favorite>(DeleteFavorites);
 
 
 
@@ -38,11 +39,37 @@ namespace YadBeYadApp.ViewModels
 
         private List<Favorite> allFavorites;
 
+        public async void DeleteFavorites(Favorite f)
+        {
+            YadProxy = YadBeYadAPIProxy.CreateProxy();
+            bool success = await YadProxy.DeleteFavorite(f);
+            if (success)
+            {
+                GetFavorites();
+            }
+            else
+            {
+                CurrentApp.MainPage.DisplayAlert("Error", "Delete failed", "OK");
+            }
+        }
 
         #region Properties
 
 
+        private Favorite currentFavorite;
 
+        public Favorite CurrentFavorite
+        {
+            get => currentFavorite;
+            set
+            {
+                if (value != currentFavorite)
+                {
+                    currentFavorite = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
 
 
@@ -51,16 +78,17 @@ namespace YadBeYadApp.ViewModels
 
         #region Commands
 
-
+        public ICommand DeleteFavoriteCommand { get; protected set; }
         #endregion
 
         public async void GetFavorites()
         {
             YadProxy = YadBeYadAPIProxy.CreateProxy();
             allFavorites = await YadProxy.GetFavoritesByUser(((App)App.Current).CurrentUser.UserId);
-            foreach (Favorite f in allFavorites)
+            if (allFavorites != null)
             {
-                Favorites.Add(f);
+                Favorites = new ObservableCollection<Favorite>(allFavorites);
+                OnPropertyChanged("Rates");
             }
         }
 
@@ -76,3 +104,4 @@ namespace YadBeYadApp.ViewModels
 
     }
 }
+
