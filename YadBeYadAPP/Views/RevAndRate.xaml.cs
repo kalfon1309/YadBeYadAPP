@@ -6,15 +6,20 @@ using System.Threading.Tasks;
 using YadBeYadApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using YadBeYadApp.Models;
 
 namespace YadBeYadApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RevAndRate : ContentPage
     {
-        public RevAndRate()
+        public RevAndRate(Attraction a)
         {
             InitializeComponent();
+            this.BindingContext = new RevAndRateViewModel(a);
         }
+
+      
+
     }
 }

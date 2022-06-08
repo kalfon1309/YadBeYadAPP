@@ -16,13 +16,13 @@
                 <Setter Property="ShowRange" Value="false"/>
                 <Setter Property="SnapsTo" Value="Ticks"/>
                 <Setter Property="TickFrequency" Value="1"/>
-                
-                <!--<Setter Property="Value" Value="{Binding Rating}"/>-->
-                
+
+                <Setter Property="Value" Value="{Binding CommentRate}"/>
+
                 <Setter Property="ShowValueLabel" Value="True"/>
                 <Setter Property="ValueChangeMode" Value="OnThumb"/>
                 
-                <Setter Property="Grid.Row" Value="3"/>
+                <Setter Property="Grid.Row" Value="4"/>
                 
                 <Setter Property="KnobColor" Value="Purple"/>
                 <Setter Property="TrackThickness" Value="5"/>
@@ -54,21 +54,22 @@
 
                 <Label Text="Add Comment:" FontFamily="Secular One" FontSize="20" TextColor="Black" FontAttributes="Bold" TextDecorations="Underline"
                     VerticalOptions="StartAndExpand" 
-                    HorizontalOptions="StartAndExpand" Grid.Row="0"  Margin="20,40,0,0"/>
+                    HorizontalOptions="CenterAndExpand" Grid.Row="0"  Margin="20,40,0,0"/>
 
-                <Frame BackgroundColor="#EAEDED" HorizontalOptions="FillAndExpand"  VerticalOptions="CenterAndExpand" WidthRequest="150" Margin="0,10,0,0" CornerRadius="50" HeightRequest="100" BorderColor="Black" Grid.Row="1"> 
-                    
-                </Frame>
+                <Editor Text="{Binding CommentText}" Placeholder="Enter Review Text:"  HorizontalOptions="FillAndExpand"  VerticalOptions="CenterAndExpand" WidthRequest="150" Margin="0,10,0,0"  HeightRequest="100" Grid.Row="1" BackgroundColor="White" PlaceholderColor="Black"/>
 
+                <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  WidthRequest="170" Grid.Row="2" HeightRequest="50"  CornerRadius="40" VerticalOptions="CenterAndExpand" Text="Send Review" 
+                        Margin="0,70,0,0" FontSize="18" FontFamily="Secular One" FontAttributes="Bold" Command="{Binding AddCommentCommand}"/>
+                
                 <Label Text="Add Rating:" FontFamily="Secular One" FontSize="20" TextColor="Black" FontAttributes="Bold" TextDecorations="Underline"
                     VerticalOptions="StartAndExpand" 
-                    HorizontalOptions="StartAndExpand" Grid.Row="2"  Margin="20,40,0,0"/>
+                    HorizontalOptions="CenterAndExpand" Grid.Row="3"  Margin="20,40,0,0"/>
 
                 <range:SfRangeSlider Style="{StaticResource RatingSlider}"/>
 
+                <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  WidthRequest="170" Grid.Row="5" HeightRequest="50"  CornerRadius="40" VerticalOptions="CenterAndExpand" Text="Send Rate" 
+                        Margin="0,70,0,0" FontSize="18" FontFamily="Secular One" FontAttributes="Bold" Command="{Binding AddRateCommand}"/>
 
-                <Button BackgroundColor="#6482EE" HorizontalOptions="CenterAndExpand"  WidthRequest="170" Grid.Row="4" HeightRequest="50"  CornerRadius="40" VerticalOptions="CenterAndExpand" Text="Save" 
-                        Margin="0,70,0,0" FontSize="18" FontFamily="Secular One" FontAttributes="Bold"/>
 
 
             </Grid>

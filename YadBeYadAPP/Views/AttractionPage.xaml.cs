@@ -40,6 +40,15 @@ namespace YadBeYadApp.Views
             #endregion
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            AttractionPageViewModel aPVM = (AttractionPageViewModel)BindingContext;
+            aPVM.RefreshPage();
+
+
+        }
+
 
     }
 }

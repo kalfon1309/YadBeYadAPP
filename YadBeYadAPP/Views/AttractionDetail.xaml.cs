@@ -35,5 +35,12 @@ namespace YadBeYadApp.Views
 
             #endregion
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            AttractionDetailViewModel aDVM = (AttractionDetailViewModel)this.BindingContext;
+            aDVM.RefreshPage();
+        }
     }
 }

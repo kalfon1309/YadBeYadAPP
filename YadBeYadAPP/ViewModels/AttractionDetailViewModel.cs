@@ -7,7 +7,7 @@ using Xamarin.Forms;
 using YadBeYadApp.Models;
 using YadBeYadApp.Services;
 using YadBeYadApp.Views;
-using YadBeYadAPP.ViewModels;
+using YadBeYadApp.ViewModels;
 using YadBeYadApp.Services;
 
 namespace YadBeYadApp.ViewModels
@@ -77,7 +77,7 @@ namespace YadBeYadApp.ViewModels
 
         private void ToRevAndRate()
         {
-            Push?.Invoke(new RevAndRate());
+            Push?.Invoke(new RevAndRate(this.currentAttraction));
         }
 
         private async void HeartFill()
@@ -178,6 +178,55 @@ namespace YadBeYadApp.ViewModels
             return avg;
             
         }
+
+
+        public async void RefreshPage()
+        {
+            YadBeYadAPIProxy proxy = YadBeYadAPIProxy.CreateProxy();
+            List<Attraction> allAttractions = await proxy.GetAttractionsAsync();
+
+            foreach (Attraction attraction in allAttractions)
+            {
+                if(this.currentAttraction.AttractionId == attraction.AttractionId)
+                {
+                    this.currentAttraction = attraction;
+                }
+            }
+
+            double rate = AvgRate();
+            this.AttractionRate = string.Format("{0:0.0}", rate);
+
+            if (rate >= 0 && rate <= 3)
+            {
+                this.RateBackgroundColor = Color.Red;
+            }
+            else if (rate <= 6)
+            {
+                this.RateBackgroundColor = Color.Orange;
+            }
+            else
+            {
+                this.RateBackgroundColor = Color.Lime;
+            }
+
+
+            this.ReviewsToShow = new ObservableCollection<ReviewInList>();
+            foreach (Review review in currentAttraction.Reviews)
+            {
+                if (review.IsActive)
+                {
+                    this.ReviewsToShow.Add(new ReviewInList
+                    {
+                        UserName = review.User.UserName,
+                        Comment = review.Comment,
+                        Date = review.ReviewDate.ToString("dd/MM/yyyy")
+                    });
+                }
+            }
+            OnPropertyChanged("ReviewsToShow");
+
+        }
+
 
 
 

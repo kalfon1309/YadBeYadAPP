@@ -51,7 +51,23 @@ namespace YadBeYadApp.ViewModels
         }
         private void ToDetailAttPage(Attraction att)
         {
-            Push?.Invoke(new AttractionDetail(att));
+            Attraction chosenAtt = null;
+            foreach (Attraction attraction in Attractions)
+            {
+                if (attraction.AttractionId == att.AttractionId)
+                    chosenAtt = attraction;
+            }
+
+            if(chosenAtt != null)
+            {
+                Push?.Invoke(new AttractionDetail(chosenAtt));
+            }
+            else
+            {
+                Push?.Invoke(new AttractionDetail(att));
+            }
+
+            
         }
 
         private async void GetAllAttractions()
@@ -66,7 +82,10 @@ namespace YadBeYadApp.ViewModels
 
         }
 
-
+        public void RefreshPage()
+        {
+            GetAllAttractions();
+        }
        
 
 

@@ -75,7 +75,29 @@ namespace YadBeYadApp.ViewModels
                     await App.Current.MainPage.DisplayAlert("Failed", "Fail!!!!", "ok");
                     return;
                 }
-                bool isUnique = await proxy.CheckUniqueness(Email, UserName);
+
+                string emailToCheckUnique;
+                string userNameToCheckUnique;
+
+                if(UserName == ((App)App.Current).CurrentUser.UserName)
+                {
+                    userNameToCheckUnique = string.Empty;
+                }
+                else
+                {
+                    userNameToCheckUnique = UserName;
+                }
+
+                if(Email == ((App)App.Current).CurrentUser.Email)
+                {
+                    emailToCheckUnique = string.Empty;
+                }
+                else
+                {
+                    emailToCheckUnique = Email;
+                }
+
+                bool isUnique = await proxy.CheckUniqueness(emailToCheckUnique, userNameToCheckUnique);
 
                 if (isUnique)
                 {
@@ -88,18 +110,20 @@ namespace YadBeYadApp.ViewModels
                         Age = Age,
                         FirstName = FirstName,
                         LastName = LastName,
-                        Rates = new List<Rate>(),
-                        Reviews = new List<Review>()
+                        UserId = ((App)App.Current).CurrentUser.UserId
                     };
 
 
 
-                    bool b = await proxy.SignUpAsync(user);
-                    Status = "Signing you up...";
+                    bool b = await proxy.UpdateUser(user);
+                    Status = "Updating...";
                     if (b)
                     {
-                        Status = "Sign Up Completed:)";
+                        Status = "Update Completed:)";
                         await App.Current.MainPage.DisplayAlert("Success", Status, "ok");
+                        User u = await proxy.LoginAsync(Email, Password);
+                        ((App)App.Current).CurrentUser = u;
+
                     }
 
                     else
