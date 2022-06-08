@@ -88,7 +88,7 @@ namespace YadBeYadApp.ViewModels
             if (allFavorites != null)
             {
                 Favorites = new ObservableCollection<Favorite>(allFavorites);
-                OnPropertyChanged("Rates");
+                OnPropertyChanged("Favorites");
             }
         }
 
