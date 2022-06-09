@@ -4,7 +4,8 @@
              xmlns:viewmodel="clr-namespace:YadBeYadApp.ViewModels"
              xmlns:model="clr-namespace:YadBeYadApp.Models"
              x:Class="YadBeYadApp.Views.FavoritesPage" 
-             x:DataType="viewmodel:FavoritesPageViwModel">
+             x:DataType="viewmodel:FavoritesPageViwModel"
+             x:Name="this">
     <ContentPage.Content>
         <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#CAFBFE" Padding="10">
 
@@ -30,7 +31,8 @@
                             <Frame BackgroundColor="#2dc653" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"  CornerRadius="50" HeightRequest="40" BorderColor="Black"
                                 Grid.Row="2">
                                 <StackLayout>
-                                    <Label Text="{Binding Attraction.AttName}"  FontSize="25" FontFamily="Secular One" TextColor="Black" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextDecorations="Underline"  VerticalOptions="CenterAndExpand" />
+                                    <Button Margin="0,-5,0,0" Padding="0" BackgroundColor="Transparent" CommandParameter="{Binding Source={x:Reference this}, Path=BindingContext.CurrentFavorite}"
+                                            Command="{Binding Source={x:Reference this}, Path=BindingContext.ToAttractionDetailPageCommand}" Text="{Binding Attraction.AttName}"  FontSize="25" FontFamily="Secular One" TextColor="Black" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" />
                                    
                                 </StackLayout>
                             </Frame>

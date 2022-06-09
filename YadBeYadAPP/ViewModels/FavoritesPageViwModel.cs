@@ -18,7 +18,7 @@ namespace YadBeYadApp.ViewModels
             Favorites = new ObservableCollection<Models.Favorite>();
             GetFavorites();
             DeleteFavoriteCommand = new Command<Favorite>(DeleteFavorites);
-
+            ToAttractionDetailPageCommand = new Command<Favorite>(ToAttractionDetailPage);
 
 
         }
@@ -34,6 +34,28 @@ namespace YadBeYadApp.ViewModels
         //    }
 
         //}
+
+        private void ToAttractionDetailPage(Favorite favorite)
+        {
+            Attraction chosenAttraction = null;
+            foreach (Attraction attraction in ((App)App.Current).attractions)
+            {
+                if (favorite.AttractionId == attraction.AttractionId)
+                    chosenAttraction = attraction;
+            }
+
+            if (chosenAttraction != null)
+            {
+                Push?.Invoke(new AttractionDetail(chosenAttraction));
+            }
+            else
+            {
+                Push?.Invoke(new AttractionDetail(favorite.Attraction));
+            }
+        }
+
+
+
 
         public ObservableCollection<Models.Favorite> Favorites { get; set; }
 
@@ -78,6 +100,7 @@ namespace YadBeYadApp.ViewModels
 
         #region Commands
 
+        public ICommand ToAttractionDetailPageCommand { get; set; }
         public ICommand DeleteFavoriteCommand { get; protected set; }
         #endregion
 

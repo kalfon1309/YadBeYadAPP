@@ -18,12 +18,31 @@ namespace YadBeYadApp.ViewModels
             Reviews = new ObservableCollection<Review>();
             GetReviews();
             DeleteRevCommand = new Command<Review>(DeleteReview);
+            ToAttractionDetailPageCommand = new Command<Review>(ToAttractionDetailPage);
 
 
 
 
 
+        }
 
+        private void ToAttractionDetailPage(Review review)
+        {
+            Attraction chosenAttraction = null;
+            foreach (Attraction attraction in ((App)App.Current).attractions)
+            {
+                if (review.AttractionId == attraction.AttractionId)
+                    chosenAttraction = attraction;
+            }
+
+            if(chosenAttraction != null)
+            {
+                Push?.Invoke(new AttractionDetail(chosenAttraction));
+            }
+            else
+            {
+                Push?.Invoke(new AttractionDetail(review.Attraction));
+            }
         }
 
         //private async void GetAllAttractions()
@@ -80,6 +99,7 @@ namespace YadBeYadApp.ViewModels
 
         #region Commands
 
+        public ICommand ToAttractionDetailPageCommand { get; set; }
         public ICommand DeleteRevCommand { get; protected set; }
 
         #endregion

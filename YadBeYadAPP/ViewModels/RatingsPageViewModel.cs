@@ -18,7 +18,7 @@ namespace YadBeYadApp.ViewModels
             Rates = new ObservableCollection<Rate>();
             GetRates();
             DeleteRateCommand = new Command<Rate>(DeleteRate);
-
+            ToAttractionDetailPageCommand = new Command<Rate>(ToAttractionDetailPage);
 
 
         }
@@ -34,6 +34,26 @@ namespace YadBeYadApp.ViewModels
         //    }
 
         //}
+        private void ToAttractionDetailPage(Rate rate)
+        {
+            Attraction chosenAttraction = null;
+            foreach (Attraction attraction in ((App)App.Current).attractions)
+            {
+                if (rate.AttractionId == attraction.AttractionId)
+                    chosenAttraction = attraction;
+            }
+
+            if (chosenAttraction != null)
+            {
+                Push?.Invoke(new AttractionDetail(chosenAttraction));
+            }
+            else
+            {
+                Push?.Invoke(new AttractionDetail(rate.Attraction));
+            }
+        }
+
+
 
         public ObservableCollection<Rate> Rates { get; set; }
 
@@ -63,6 +83,7 @@ namespace YadBeYadApp.ViewModels
 
         #region Commands
         public ICommand DeleteRateCommand { get; protected set; }
+        public ICommand ToAttractionDetailPageCommand { get; set; }
 
         #endregion
 

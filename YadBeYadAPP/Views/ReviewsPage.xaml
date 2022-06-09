@@ -4,7 +4,8 @@
              xmlns:viewmodel="clr-namespace:YadBeYadApp.ViewModels"
              xmlns:model="clr-namespace:YadBeYadApp.Models"
              x:Class="YadBeYadApp.Views.ReviewsPage" 
-             x:DataType="viewmodel:ReviewsPageViewModel">
+             x:DataType="viewmodel:ReviewsPageViewModel"
+             x:Name="this">
     <ContentPage.Content>
         <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#CAFBFE" Padding="10">
 
@@ -23,13 +24,14 @@
 
 
 
-                <CarouselView  x:Name="crouselview" CurrentItem="{Binding CurrentReview}" IndicatorView="indicatorView" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="2" ItemsSource="{Binding Reviews}" Margin="30,70,30,0" HeightRequest="120" >
+                <CarouselView  x:Name="crouselview" CurrentItem="{Binding CurrentReview}" IndicatorView="indicatorView" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Grid.Row="2" ItemsSource="{Binding Reviews}" Margin="30,70,30,0" HeightRequest="120">
                     <CarouselView.ItemTemplate>
                         <DataTemplate x:DataType="model:Review">
                             <Frame BackgroundColor="#EAEDED" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand"  CornerRadius="50" HeightRequest="200" BorderColor="Black"
                                 Grid.Row="2">
                                 <StackLayout>
-                                    <Label Text="{Binding Attraction.AttName}"  FontSize="18" FontFamily="Secular One" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextDecorations="Underline"  VerticalOptions="CenterAndExpand" />
+                                    <Button Margin="0,-13,0,0" Padding="0" BackgroundColor="Transparent" CommandParameter="{Binding Source={x:Reference this}, Path=BindingContext.CurrentReview}"
+                                            Command="{Binding Source={x:Reference this}, Path=BindingContext.ToAttractionDetailPageCommand}" Text="{Binding Attraction.AttName}"  FontSize="18" FontFamily="Secular One" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
                                     <Label Text="{Binding Comment}"  FontSize="18" FontFamily="Secular One" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand" />
                                     <Label Text="{Binding ReviewDate}" FontSize="12" FontFamily="Secular One" FontAttributes="Bold" HorizontalOptions="EndAndExpand"  VerticalOptions="End" > </Label>
                                 </StackLayout>
